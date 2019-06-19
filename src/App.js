@@ -1,5 +1,6 @@
-import React from "react";
-import Chart from "./components/Chart"
+import React from 'react';
+import Calendar from './components/Calendar';
+import Chart from './components/Chart';
 
 class App extends React.Component {
   constructor(){
@@ -13,28 +14,50 @@ class App extends React.Component {
     this.getChartData();
   }
 
+  //rerender as needed
+  componentDidMount(){
+
+  }
+
   getChartData(){
     //Ajax calls here
     this.setState({
       chartData:{
 
-          labels: ['h7', 'h2', 'h3', 'h4', 'h5'],
+          labels: ['05-06', '05-07', '05-08', '05-09', '05-10', '05-11', '05-12', '05-13', '05-14'],
           datasets: [
             {
               label:'Population',
               data:[
-                60000,
-                50000,
-                40000,
-                30000,
-                20000
+                0,
+                5.75,
+                11.5,
+                17.25,
+                23
               ],
               backgroundColor:[
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(255, 99, 132, 0.6)'
+                'rgba(63, 63, 191, 0.6)',
+                'rgba(63, 63, 191, 0.6)',
+                'rgba(63, 63, 191, 0.6)',
+                'rgba(63, 63, 191, 0.6)',
+                'rgba(63, 63, 191, 0.6)',
+              ]
+            },
+            {
+              label:'Second Population',
+              data:[
+                5,
+                10,
+                15,
+                20,
+                25
+              ],
+              backgroundColor:[
+                'rgba(63, 191, 63, 0.6)',
+                'rgba(63, 191, 63, 0.6)',
+                'rgba(63, 191, 63, 0.6)',
+                'rgba(63, 191, 63, 0.6)',
+                'rgba(63, 191, 63, 0.6)',
               ]
             }
           ]
@@ -47,6 +70,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+      <Calendar />
       <Chart chartData={this.state.chartData} location="California"/>
       </div>
     );
