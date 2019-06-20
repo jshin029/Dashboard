@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Bar} from 'react-chartjs-2';
+import {Bar,Line,Pie} from 'react-chartjs-2';
 
 class Chart extends Component {
   constructor(props){
@@ -18,9 +18,50 @@ class Chart extends Component {
   }
 
   render(){
+    if (this.props.chartType=='Bar'){
+      return (
+        <div className="chart">
+          <Bar
+            data={this.state.chartData}
+            options={{
+              title:{
+                display:this.props.displayTitle,
+                text:'Location is in: ' + this.props.location,
+              },
+              legend:{
+                display:this.props.displayLegend,
+                position:'right'
+              }
+            }}
+          />
+        </div>
+      );
+  }
+
+    else if (this.props.chartType=='Line'){
+      return (
+        <div className="chart">
+          <Line
+            data={this.state.chartData}
+            options={{
+              title:{
+                display:this.props.displayTitle,
+                text:'Location is in: ' + this.props.location,
+              },
+              legend:{
+                display:this.props.displayLegend,
+                position:'right'
+              }
+            }}
+          />
+        </div>
+      );
+  }
+
+  else if (this.props.chartType=='Pie'){
     return (
       <div className="chart">
-        <Bar
+        <Pie
           data={this.state.chartData}
           options={{
             title:{
@@ -33,12 +74,10 @@ class Chart extends Component {
             }
           }}
         />
-        {this.state.error &&
-          <h3>{this.state.error}</h3>
-        }
       </div>
     );
-  }
+}
+}
 };
 
 export default Chart;

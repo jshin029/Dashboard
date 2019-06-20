@@ -6,22 +6,6 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      chartData:{}
-    };
-  }
-
-  componentWillMount(){
-    this.getChartData();
-  }
-
-  //rerender as needed
-  componentDidMount(){
-
-  }
-
-  getChartData(){
-    //Ajax calls here
-    this.setState({
       chartData:{
 
           labels: ['05-06', '05-07', '05-08', '05-09', '05-10', '05-11', '05-12', '05-13', '05-14'],
@@ -61,17 +45,32 @@ class App extends React.Component {
               ]
             }
           ]
-
-      }
-    });
+      },
+      chartType:'Bar'
+    }
   }
 
+
+  BarClick = () => {
+    this.setState({chartType:'Bar'});
+  }
+
+  LineClick = () => {
+    this.setState({chartType:'Line'});
+  }
+
+  PieClick = () => {
+    this.setState({chartType:'Pie'});
+  }
 
   render() {
     return (
       <div>
-      <Calendar />
-      <Chart chartData={this.state.chartData} location="California"/>
+        <Calendar/>
+        <button onClick={this.BarClick}>Bar</button>
+        <button onClick={this.LineClick}>Line</button>
+        <button onClick={this.PieClick}>Pie</button>
+        <Chart chartData={this.state.chartData} location="California" chartType={this.state.chartType}/>
       </div>
     );
   }
