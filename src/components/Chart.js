@@ -18,6 +18,7 @@ class Chart extends Component {
   }
 
   render(){
+    console.log(this.props.temp);
     if (this.props.chartType=='Bar'){
       return (
         <div className="chart">

@@ -14,6 +14,8 @@ class Calendar extends Component {
   }
 
   render(){
+    const falseFunc = ()=>false;
+
     return(
       <div className="calendar">
         <DateRangePicker
@@ -24,6 +26,7 @@ class Calendar extends Component {
          onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate })}}
          focusedInput={this.state.focusedInput}
          onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
+         isOutsideRange={falseFunc}
          />
       </div>
     );

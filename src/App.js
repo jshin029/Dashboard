@@ -1,13 +1,17 @@
 import React from 'react';
-import Calendar from './components/Calendar';
 import Chart from './components/Chart';
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
 
 class App extends React.Component {
   constructor(){
     super();
     this.state = {
+      startDate: null,
+      endDate: null,
+      focusedInput: null,
       chartData:{
-
           labels: ['05-06', '05-07', '05-08', '05-09', '05-10', '05-11', '05-12', '05-13', '05-14'],
           datasets: [
             {
@@ -50,7 +54,6 @@ class App extends React.Component {
     }
   }
 
-
   BarClick = () => {
     this.setState({chartType:'Bar'});
   }
@@ -64,13 +67,27 @@ class App extends React.Component {
   }
 
   render() {
+    const falseFunc = ()=>false;
     return (
       <div>
-        <Calendar/>
         <button onClick={this.BarClick}>Bar</button>
         <button onClick={this.LineClick}>Line</button>
         <button onClick={this.PieClick}>Pie</button>
-        <Chart chartData={this.state.chartData} location="California" chartType={this.state.chartType}/>
+        <p>Select a Location: </p>
+        <DateRangePicker
+         startDateId="startDate"
+         endDateId="endDate"
+         startDate={this.state.startDate}
+         endDate={this.state.endDate}
+         onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate })}}
+         focusedInput={this.state.focusedInput}
+         onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
+         isOutsideRange={falseFunc}
+         />
+
+
+
+        <Chart chartData={this.state.chartData} location="California" chartType={this.state.chartType} temp={this.state.startDate}/>
       </div>
     );
   }
