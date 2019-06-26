@@ -119,8 +119,8 @@ class App extends React.Component {
       }
     });
   }
-  
-  yeet = () => {
+
+  range = () => {
     var x = null;
     var temp = [];
     var data = this.state.chartData.datasets[0].data;
@@ -169,7 +169,7 @@ class App extends React.Component {
         <button onClick={this.location2}>Riverside</button>
         <button onClick={this.location3}>Irvine</button>
 
-        <button onClick={this.yeet}>yeet</button>
+        <button onClick={this.range}>range</button>
 
         <p> Pick a date </p>
         <Calendar/>
