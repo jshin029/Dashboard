@@ -16,8 +16,6 @@ class App extends React.Component {
       chartType:'Bar',
       test: null,
       location: 'Cupertino',
-      startDate: null,
-      endDate: null,
       focusedInput: null
     }
   }
@@ -120,7 +118,9 @@ class App extends React.Component {
     });
   }
 
-  range = () => {
+  range = (start, end) => {
+      console.log("this is from range");
+      console.log(start);
       var x = null;
       var temp = [];
       var data = this.state.chartData.datasets[0].data;
@@ -145,28 +145,43 @@ class App extends React.Component {
         }
       }
 
-      var newData = [];
       for (var i = 0; i < temp3.length; ++i){
-        newData.push(data[temp3[i]]);
-        temp2.push(labels[temp3[i]]);
+        temp2.push(labels[temp3[i]]); //labels for all devices
       }
-      console.log(temp2);
-      console.log(newData);
+
+      var newData = [];
+      var deviceData = [];
+
+      //parses data from each device based on user's range
+      for (var i = 0; i < this.state.chartData.datasets.length; ++i){
+        for (var j = 0; j < temp3.length; ++j){
+          newData.push(this.state.chartData.datasets[i].data[temp3[j]]); //data per device
+        }
+        deviceData.push(newData);
+        newData = [];
+      }
+
+      console.log(deviceData);
+
       this.setState({chartExtract: {
           labels: temp2,
           datasets: [
             {
               label: 'Device_1',
-              data: newData,
+              data: deviceData[0],
               backgroundColor: 'rgba(63, 63, 191, 0.6)'
+            },
+            {
+              label: 'Device_2',
+              data: deviceData[1],
+              backgroundColor: 'rgba(255, 35, 35, 0.6)'
             }
           ]
         }});
-    }
+}
 
   render() {
     const falseFunc = ()=>false;
-    console.log(this.state.chartExtract);
     return (
       <div>
         <p> Select a Chart's Data </p>
@@ -183,7 +198,7 @@ class App extends React.Component {
         <button onClick={this.range}>range</button>
 
         <p> Pick a date </p>
-        <Calendar/>
+        <Calendar range={this.range}/>
 
         <Chart chartData={this.state.chartExtract} location={this.state.location} chartType={this.state.chartType} temp={this.state.startDate} />
       </div>

@@ -3,6 +3,7 @@ import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'rea
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 
+
 class Calendar extends Component {
   constructor(props) {
     super(props);
@@ -13,9 +14,13 @@ class Calendar extends Component {
     };
   }
 
-  render(){
-    const falseFunc = ()=>false;
+  handleChange = () => {
+    console.log("hello");
+    this.props.range(this.state.startDate, this.state.endDate);
+  }
 
+  render(){
+    const falseFunc = () =>false;
     return(
       <div className="calendar">
         <DateRangePicker
@@ -23,7 +28,7 @@ class Calendar extends Component {
          endDateId="endDate"
          startDate={this.state.startDate}
          endDate={this.state.endDate}
-         onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate })}}
+         onDatesChange={({ startDate, endDate }) => {this.handleChange(); this.setState({ startDate, endDate })}}
          focusedInput={this.state.focusedInput}
          onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
          isOutsideRange={falseFunc}

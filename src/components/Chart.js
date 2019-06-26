@@ -21,7 +21,6 @@ class Chart extends Component {
   }
 
   render(){
-
     if (this.props.chartType=='Bar'){
       return (
         <div className="chart">
