@@ -12,7 +12,7 @@ class App extends React.Component {
     super();
     this.state = {
       chartData: {},
-      chartExtract: {labels:[],datasets:[]},
+      chartExtract: [1, 2, 3],
       chartType:'Bar',
       test: null,
       location: 'Cupertino',
@@ -29,36 +29,20 @@ class App extends React.Component {
   getChartData () {
     //make ajax/axios call
       this.setState({
+
         chartData:{
             labels: ['09-06', '09-07', '09-08', '09-09', '09-10', '09-11', '09-12', '09-13'],
             datasets: [
               {
                 label:'Device_1',
                 data:[1, 4, 8, 2, 20, 23, 14, 9],
-                backgroundColor:[
-                  'rgba(63, 63, 191, 0.6)',
-                  'rgba(63, 63, 191, 0.6)',
-                  'rgba(63, 63, 191, 0.6)',
-                  'rgba(63, 63, 191, 0.6)',
-                  'rgba(63, 63, 191, 0.6)',
-                  'rgba(63, 63, 191, 0.6)',
-                  'rgba(63, 63, 191, 0.6)',
-                  'rgba(63, 63, 191, 0.6)'
-                ]
+                backgroundColor: 'rgba(63, 63, 191, 0.6)'
+
               },
               {
                 label:'Device_2',
                 data:[23, 17, 30, 5, 3, 2, 13, 15],
-                backgroundColor:[
-                  'rgba(255, 35, 35, 0.6)',
-                  'rgba(255, 35, 35, 0.6)',
-                  'rgba(255, 35, 35, 0.6)',
-                  'rgba(255, 35, 35, 0.6)',
-                  'rgba(255, 35, 35, 0.6)',
-                  'rgba(255, 35, 35, 0.6)',
-                  'rgba(255, 35, 35, 0.6)',
-                  'rgba(255, 35, 35, 0.6)'
-                ]
+                backgroundColor: 'rgba(255, 35, 35, 0.6)'
               }
             ]
         }
@@ -86,30 +70,12 @@ class App extends React.Component {
             {
               label:'Device_1',
               data:[1, 4, 8, 2, 20, 23, 14, 9],
-              backgroundColor:[
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)'
-              ]
+              backgroundColor:'rgba(63, 63, 191, 0.6)'
             },
             {
               label:'Device_2',
               data:[23, 17, 30, 5, 3, 2, 13, 15],
-              backgroundColor:[
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)'
-              ]
+              backgroundColor: 'rgba(255, 35, 35, 0.6)'
             }
           ]
       }
@@ -126,30 +92,12 @@ class App extends React.Component {
             {
               label:'Device_1',
               data:[2, 4, 6, 8, 10, 12, 14, 16],
-              backgroundColor:[
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)'
-              ]
+              backgroundColor: 'rgba(63, 63, 191, 0.6)'
             },
             {
               label:'Device_2',
               data:[1, 3, 5, 7, 9, 11, 13, 15],
-              backgroundColor:[
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)',
-                'rgba(255, 35, 35, 0.6)'
-              ]
+              backgroundColor: 'rgba(255, 35, 35, 0.6)'
             }
           ]
       }
@@ -165,44 +113,49 @@ class App extends React.Component {
             {
               label:'Device_1',
               data:[0, 5, 10, 15, 20, 15, 10, 5],
-              backgroundColor:[
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)',
-                'rgba(63, 63, 191, 0.6)'
-              ]
+              backgroundColor: 'rgba(63, 63, 191, 0.6)'
             }
           ]
       }
     });
   }
-
-/*  test = () => {
-    this.setState({
-      chartExtract{
-        labels: this.state.chartData.labels,
-        datasets:[
-
-        ]
+  
+  yeet = () => {
+    var x = null;
+    var temp = [];
+    var data = this.state.chartData.datasets[0].data;
+    var labels = this.state.chartData.labels;
+    //filling temp array with current states date
+    for (var i = 0; i < this.state.chartData.labels.length; ++i){
+      x =  this.state.chartData.labels[i];
+      x = x.replace('-','');
+      x = parseInt(x);
+      temp.push(x);
+    }
+    var temp2 = [];
+    var temp3 = [];
+    var a = '0907';
+    a = parseInt(a);
+    var b = '0909';
+    b = parseInt(b);
+    //only getting the dates between the user's input
+    for (var i = 0; i < temp.length; ++i){
+      if (temp[i] >= a && temp[i] <= b){
+        temp3.push(i);
       }
-    })
-  }*/
+    }
+
+    var newData = [];
+    for (var i = 0; i < temp3.length; ++i){
+      newData.push(data[temp3[i]]);
+      temp2.push(labels[temp3[i]]);
+    }
+    console.log(temp2);
+    console.log(newData);
+  }
 
   render() {
     const falseFunc = ()=>false;
-    var x =[];
-    var y = null;
-    for (var i = 0; i < this.state.chartData.labels.length; ++i){
-      y = (parseInt(this.state.chartData.labels[i]));
-
-    }
-
-    console.log(parseInt(this.state.chartData.labels[0]));
-
     return (
       <div>
         <p> Select a Chart's Data </p>
@@ -215,6 +168,8 @@ class App extends React.Component {
         <button onClick={this.location1}>Cupertino</button>
         <button onClick={this.location2}>Riverside</button>
         <button onClick={this.location3}>Irvine</button>
+
+        <button onClick={this.yeet}>yeet</button>
 
         <p> Pick a date </p>
         <Calendar/>

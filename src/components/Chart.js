@@ -6,7 +6,10 @@ class Chart extends Component {
     super(props);
     this.state = {
       chartData:props.chartData,
-      error: null
+      error: null,
+      labels: ['1', '2', '3'],
+      datasets: [{}],
+
     }
   }
 
@@ -18,8 +21,6 @@ class Chart extends Component {
   }
 
   render(){
-
-    console.log(this.props.chartData);
 
     if (this.props.chartType=='Bar'){
       return (
