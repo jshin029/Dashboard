@@ -28,6 +28,13 @@ class Chart extends Component {
           <Bar
             data={this.props.chartData}
             options={{
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              },
               maintainAspectRatio: false,
               title:{
                 display:this.props.displayTitle,
@@ -49,6 +56,13 @@ class Chart extends Component {
           <Line
             data={this.props.chartData}
             options={{
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              },
               maintainAspectRatio: false,
               title:{
                 display:this.props.displayTitle,
@@ -70,6 +84,13 @@ class Chart extends Component {
         <Pie
           data={this.props.chartData}
           options={{
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            },
             maintainAspectRatio: false,
             title:{
               display:this.props.displayTitle,

@@ -12,7 +12,7 @@ class App extends React.Component {
     super();
     this.state = {
       chartData: {},
-      chartExtract: [1, 2, 3],
+      chartExtract: {},
       chartType:'Bar',
       test: null,
       location: 'Cupertino',
@@ -121,41 +121,52 @@ class App extends React.Component {
   }
 
   range = () => {
-    var x = null;
-    var temp = [];
-    var data = this.state.chartData.datasets[0].data;
-    var labels = this.state.chartData.labels;
-    //filling temp array with current states date
-    for (var i = 0; i < this.state.chartData.labels.length; ++i){
-      x =  this.state.chartData.labels[i];
-      x = x.replace('-','');
-      x = parseInt(x);
-      temp.push(x);
-    }
-    var temp2 = [];
-    var temp3 = [];
-    var a = '0907';
-    a = parseInt(a);
-    var b = '0909';
-    b = parseInt(b);
-    //only getting the dates between the user's input
-    for (var i = 0; i < temp.length; ++i){
-      if (temp[i] >= a && temp[i] <= b){
-        temp3.push(i);
+      var x = null;
+      var temp = [];
+      var data = this.state.chartData.datasets[0].data;
+      var labels = this.state.chartData.labels;
+      //filling temp array with current states date
+      for (var i = 0; i < this.state.chartData.labels.length; ++i){
+        x =  this.state.chartData.labels[i];
+        x = x.replace('-','');
+        x = parseInt(x);
+        temp.push(x);
       }
-    }
+      var temp2 = [];
+      var temp3 = [];
+      var a = '0907';
+      a = parseInt(a);
+      var b = '0909';
+      b = parseInt(b);
+      //only getting the dates between the user's input
+      for (var i = 0; i < temp.length; ++i){
+        if (temp[i] >= a && temp[i] <= b){
+          temp3.push(i);
+        }
+      }
 
-    var newData = [];
-    for (var i = 0; i < temp3.length; ++i){
-      newData.push(data[temp3[i]]);
-      temp2.push(labels[temp3[i]]);
+      var newData = [];
+      for (var i = 0; i < temp3.length; ++i){
+        newData.push(data[temp3[i]]);
+        temp2.push(labels[temp3[i]]);
+      }
+      console.log(temp2);
+      console.log(newData);
+      this.setState({chartExtract: {
+          labels: temp2,
+          datasets: [
+            {
+              label: 'Device_1',
+              data: newData,
+              backgroundColor: 'rgba(63, 63, 191, 0.6)'
+            }
+          ]
+        }});
     }
-    console.log(temp2);
-    console.log(newData);
-  }
 
   render() {
     const falseFunc = ()=>false;
+    console.log(this.state.chartExtract);
     return (
       <div>
         <p> Select a Chart's Data </p>
@@ -174,7 +185,7 @@ class App extends React.Component {
         <p> Pick a date </p>
         <Calendar/>
 
-        <Chart chartData={this.state.chartData} location={this.state.location} chartType={this.state.chartType} temp={this.state.startDate} />
+        <Chart chartData={this.state.chartExtract} location={this.state.location} chartType={this.state.chartType} temp={this.state.startDate} />
       </div>
     );
   }
