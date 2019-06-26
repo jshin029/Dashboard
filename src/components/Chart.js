@@ -46,8 +46,9 @@ class Chart extends Component {
       return (
         <div className="chart">
           <Line
-            data={this.state.chartData}
+            data={this.props.chartData}
             options={{
+              maintainAspectRatio: false,
               title:{
                 display:this.props.displayTitle,
                 text:'Location is in: ' + this.props.location,
@@ -66,8 +67,9 @@ class Chart extends Component {
     return (
       <div className="chart">
         <Pie
-          data={this.state.chartData}
+          data={this.props.chartData}
           options={{
+            maintainAspectRatio: false,
             title:{
               display:this.props.displayTitle,
               text:'Location is in: ' + this.props.location,
