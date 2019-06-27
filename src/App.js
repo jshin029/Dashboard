@@ -119,12 +119,24 @@ class App extends React.Component {
   }
 
   range = (start, end) => {
-      console.log("this is from range");
-      console.log(start);
-      var x = null;
-      var temp = [];
-      var data = this.state.chartData.datasets[0].data;
-      var labels = this.state.chartData.labels;
+    if (start != null && end != null){
+      var starting = start.format().toString();
+      var ending = end.format().toString();
+
+      starting = starting.slice(5,10);
+      ending = ending.slice(5,10);
+
+      starting = starting.replace('-', '');
+      ending = ending.replace('-', '');
+    }
+
+    console.log(starting);
+    console.log(ending);
+
+    var x = null;
+    var temp = [];
+    var data = this.state.chartData.datasets[0].data;
+    var labels = this.state.chartData.labels;
       //filling temp array with current states date
       for (var i = 0; i < this.state.chartData.labels.length; ++i){
         x =  this.state.chartData.labels[i];
@@ -140,7 +152,7 @@ class App extends React.Component {
       b = parseInt(b);
       //only getting the dates between the user's input
       for (var i = 0; i < temp.length; ++i){
-        if (temp[i] >= a && temp[i] <= b){
+        if (temp[i] >= starting && temp[i] <= ending){
           temp3.push(i);
         }
       }

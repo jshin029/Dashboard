@@ -14,9 +14,8 @@ class Calendar extends Component {
     };
   }
 
-  handleChange = () => {
-    console.log("hello");
-    this.props.range(this.state.startDate, this.state.endDate);
+  handleChange = (start, end) => {
+    this.props.range(start, end);
   }
 
   render(){
@@ -28,7 +27,7 @@ class Calendar extends Component {
          endDateId="endDate"
          startDate={this.state.startDate}
          endDate={this.state.endDate}
-         onDatesChange={({ startDate, endDate }) => {this.handleChange(); this.setState({ startDate, endDate })}}
+         onDatesChange={({ startDate, endDate }) => {this.setState({ startDate, endDate }); this.handleChange(startDate, endDate);}}
          focusedInput={this.state.focusedInput}
          onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
          isOutsideRange={falseFunc}
