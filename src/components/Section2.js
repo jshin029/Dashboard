@@ -31,10 +31,9 @@ class Section2 extends React.Component {
               labels: ['09-06', '09-07', '09-08', '09-09', '09-10', '09-11', '09-12', '09-13'],
               datasets: [
                 {
-                  label:'Sensor_1',
+                  label:'Insect Count',
                   data:[1, 4, 8, 2, 20, 23, 14, 9],
                   backgroundColor: 'rgba(63, 63, 191, 0.6)'
-
                 }
               ]
           }
@@ -61,7 +60,7 @@ class Section2 extends React.Component {
             labels: ['09-06', '09-07', '09-08', '09-09', '09-10', '09-11', '09-12', '09-13'],
             datasets: [
               {
-                label:'Sensor_1',
+                label:'Insect Count',
                 data:[1, 4, 8, 2, 20, 23, 14, 9],
                 backgroundColor:'rgba(63, 63, 191, 0.6)'
               }
@@ -79,7 +78,7 @@ class Section2 extends React.Component {
             labels: ['05-06', '05-07', '05-08', '05-09', '05-10', '05-11', '05-12', '05-13'],
             datasets: [
               {
-                label:'Sensor_2',
+                label:'Insect Count',
                 data:[2, 4, 6, 8, 10, 12, 14, 16],
                 backgroundColor: 'rgba(63, 63, 191, 0.6)'
               }
@@ -96,7 +95,7 @@ class Section2 extends React.Component {
             labels: ['03-01', '03-02', '03-03', '03-04', '03-05', '03-06', '03-07', '03-08'],
             datasets: [
               {
-                label:'Sensor_3',
+                label:'Insect Count',
                 data:[0, 5, 10, 15, 20, 15, 10, 5],
                 backgroundColor: 'rgba(63, 63, 191, 0.6)'
               }
@@ -159,7 +158,7 @@ class Section2 extends React.Component {
             labels: temp2,
             datasets: [
               {
-                label: 'Device_1',
+                label: 'Insect Count',
                 data: deviceData[0],
                 backgroundColor: 'rgba(63, 63, 191, 0.6)'
               }
@@ -173,7 +172,7 @@ class Section2 extends React.Component {
     return (
       <div>
         <div>
-          <p> Select a Chart's Data </p>
+          <p> Select a Chart's format </p>
           <button onClick={this.BarClick}>Bar</button>
           <button onClick={this.LineClick}>Line</button>
           <button onClick={this.PieClick}>Pie</button>

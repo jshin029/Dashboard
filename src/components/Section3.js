@@ -5,7 +5,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import Chart from './Chart';
 import Calendar from './Calendar';
 
-class Section1 extends React.Component {
+class Section3 extends React.Component {
   constructor(){
     super();
     this.state = {
@@ -13,12 +13,12 @@ class Section1 extends React.Component {
       chartExtract: {},
       chartBool: false,
       chartType:'Bar',
+      device: 'Sensor_1',
+      units: 'C',
       test: null,
-      location: 'Cupertino',
       focusedInput: null
     }
   }
-
 
     componentWillMount() {
       this.getChartData();
@@ -32,15 +32,9 @@ class Section1 extends React.Component {
               labels: ['09-06', '09-07', '09-08', '09-09', '09-10', '09-11', '09-12', '09-13'],
               datasets: [
                 {
-                  label:'Device_1',
-                  data:[1, 4, 8, 2, 20, 23, 14, 9],
+                  label:'Insect Count',
+                  data:[225, 230, 235, 240, 248, 238, 233, 250],
                   backgroundColor: 'rgba(63, 63, 191, 0.6)'
-
-                },
-                {
-                  label:'Device_2',
-                  data:[23, 17, 30, 5, 3, 2, 13, 15],
-                  backgroundColor: 'rgba(255, 35, 35, 0.6)'
                 }
               ]
           }
@@ -59,22 +53,17 @@ class Section1 extends React.Component {
       this.setState({chartType:'Pie'});
     }
 
-    location1 = () => {
+    Sensor1 = () => {
       this.setState({
-        location:'Cupertino',
+        device:'Sensor_1',
         chartBool: false,
         chartData:{
             labels: ['09-06', '09-07', '09-08', '09-09', '09-10', '09-11', '09-12', '09-13'],
             datasets: [
               {
-                label:'Device_1',
+                label:'Insect Count',
                 data:[1, 4, 8, 2, 20, 23, 14, 9],
                 backgroundColor:'rgba(63, 63, 191, 0.6)'
-              },
-              {
-                label:'Device_2',
-                data:[23, 17, 30, 5, 3, 2, 13, 15],
-                backgroundColor: 'rgba(255, 35, 35, 0.6)'
               }
             ]
         }
@@ -82,37 +71,32 @@ class Section1 extends React.Component {
       });
     }
 
-    location2 = () => {
+    Sensor2 = () => {
       this.setState({
-        location:'Riverside',
+        device:'Sensor_2',
         chartBool: false,
         chartData:{
             labels: ['05-06', '05-07', '05-08', '05-09', '05-10', '05-11', '05-12', '05-13'],
             datasets: [
               {
-                label:'Device_1',
+                label:'Insect Count',
                 data:[2, 4, 6, 8, 10, 12, 14, 16],
                 backgroundColor: 'rgba(63, 63, 191, 0.6)'
-              },
-              {
-                label:'Device_2',
-                data:[1, 3, 5, 7, 9, 11, 13, 15],
-                backgroundColor: 'rgba(255, 35, 35, 0.6)'
               }
             ]
         }
       });
     }
 
-    location3 = () => {
+    Sensor3 = () => {
       this.setState({
-        location:'Irvine',
+        device:'Sensor_3',
         chartBool: false,
         chartData:{
             labels: ['03-01', '03-02', '03-03', '03-04', '03-05', '03-06', '03-07', '03-08'],
             datasets: [
               {
-                label:'Device_1',
+                label:'Insect Count',
                 data:[0, 5, 10, 15, 20, 15, 10, 5],
                 backgroundColor: 'rgba(63, 63, 191, 0.6)'
               }
@@ -175,14 +159,9 @@ class Section1 extends React.Component {
             labels: temp2,
             datasets: [
               {
-                label: 'Device_1',
+                label: 'Insect Count',
                 data: deviceData[0],
                 backgroundColor: 'rgba(63, 63, 191, 0.6)'
-              },
-              {
-                label: 'Device_2',
-                data: deviceData[1],
-                backgroundColor: 'rgba(255, 35, 35, 0.6)'
               }
             ]
           },
@@ -199,19 +178,19 @@ class Section1 extends React.Component {
           <button onClick={this.LineClick}>Line</button>
           <button onClick={this.PieClick}>Pie</button>
 
-          <p> Insect Count (per location) </p>
-          <button onClick={this.location1}>Cupertino</button>
-          <button onClick={this.location2}>Riverside</button>
-          <button onClick={this.location3}>Irvine</button>
+          <p> Select a Device </p>
+          <button onClick={this.Sensor1}>Sensor_1</button>
+          <button onClick={this.Sensor2}>Sensor_2</button>
+          <button onClick={this.Sensor3}>Sensor_3</button>
 
           <p> Pick a date </p>
           <Calendar range={this.range}/>
 
-          <Chart chartData = {this.state.chartBool ? this.state.chartExtract: this.state.chartData} title={this.state.location} chartType={this.state.chartType}/>
+          <Chart chartData = {this.state.chartBool ? this.state.chartExtract: this.state.chartData} title={this.state.device} chartType={this.state.chartType} units={this.state.units}/>
         </div>
       </div>
     );
   }
 };
 
-export default Section1;
+export default Section3;

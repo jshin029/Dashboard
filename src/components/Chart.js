@@ -22,10 +22,37 @@ class Chart extends Component {
 
 
   render(){
-    if (this.props.chartExtract != null){
-
+    if (this.props.chartType=='Bar' && this.props.units=='C'){
+      return (
+        <div className="chart">
+          <Bar
+            data={this.props.chartData}
+            options={{
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true,
+                    callback: function(value, index, values) {
+                      return value + "° C";
+                    }
+                  }
+                }]
+              },
+              maintainAspectRatio: false,
+              title:{
+                display:this.props.displayTitle,
+                text: this.props.title,
+              },
+              legend:{
+                display:this.props.displayLegend,
+                position:'right'
+              }
+            }}
+          />
+        </div>
+      );
     }
-    if (this.props.chartType=='Bar'){
+    else if (this.props.chartType=='Bar'){
       return (
         <div className="chart">
           <Bar
