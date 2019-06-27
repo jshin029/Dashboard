@@ -5,11 +5,10 @@ class Chart extends Component {
   constructor(props){
     super(props);
     this.state = {
-      chartData:props.chartData,
+      chartData: props.chartData,
       error: null,
       labels: ['1', '2', '3'],
       datasets: [{}],
-
     }
   }
 
@@ -20,7 +19,12 @@ class Chart extends Component {
     location:'Location'
   }
 
+
+
   render(){
+    if (this.props.chartExtract != null){
+
+    }
     if (this.props.chartType=='Bar'){
       return (
         <div className="chart">
