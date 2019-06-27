@@ -41,7 +41,7 @@ class Chart extends Component {
               maintainAspectRatio: false,
               title:{
                 display:this.props.displayTitle,
-                text:'Location is in: ' + this.props.location,
+                text: this.props.title,
               },
               legend:{
                 display:this.props.displayLegend,
@@ -69,7 +69,7 @@ class Chart extends Component {
               maintainAspectRatio: false,
               title:{
                 display:this.props.displayTitle,
-                text:'Location is in: ' + this.props.location,
+                text: this.props.title,
               },
               legend:{
                 display:this.props.displayLegend,
@@ -97,7 +97,7 @@ class Chart extends Component {
             maintainAspectRatio: false,
             title:{
               display:this.props.displayTitle,
-              text:'Location is in: ' + this.props.location,
+              text: this.props.title,
             },
             legend:{
               display:this.props.displayLegend,
