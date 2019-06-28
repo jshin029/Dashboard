@@ -2,6 +2,8 @@ import React from 'react';
 import Section1 from './components/Section1';
 import Section2 from './components/Section2';
 import Section3 from './components/Section3';
+import Section4 from './components/Section4';
+
 
 class App extends React.Component {
   constructor(){
@@ -20,6 +22,8 @@ class App extends React.Component {
         <Section2/>
         <h2>Degree Day (per device)</h2>
         <Section3/>
+        <h2>Temperature (per device)</h2>
+        <Section4/>
       </div>
     );
   }

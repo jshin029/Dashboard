@@ -4,6 +4,8 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import Chart from './Chart';
 import Calendar from './Calendar';
+import moment from 'moment';
+
 
 class Section1 extends React.Component {
   constructor(){
@@ -13,7 +15,8 @@ class Section1 extends React.Component {
       chartExtract: {},
       chartBool: false,
       chartType:'Bar',
-      test: null,
+      startDate: '',
+      endDate: '',
       location: 'Cupertino',
       focusedInput: null
     }
@@ -29,22 +32,18 @@ class Section1 extends React.Component {
         this.setState({
 
           chartData:{
-              labels: ['09-06', '09-07', '09-08', '09-09', '09-10', '09-11', '09-12', '09-13'],
-              datasets: [
+               labels: ["Jul-10", "Jul-11", "Jul-12", "Jul-13", "Jul-14", "Jul-15"],
+               datasets: [
                 {
                   label:'Device_1',
-                  data:[1, 4, 8, 2, 20, 23, 14, 9],
+                  data:[5, 7, 11, 13, 15, 17],
                   backgroundColor: 'rgba(63, 63, 191, 0.6)'
 
-                },
-                {
-                  label:'Device_2',
-                  data:[23, 17, 30, 5, 3, 2, 13, 15],
-                  backgroundColor: 'rgba(255, 35, 35, 0.6)'
                 }
               ]
-          }
+          },
         });
+        console.log(this.state.chartData);
 
     }
     BarClick = () => {
@@ -123,72 +122,15 @@ class Section1 extends React.Component {
 
     range = (start, end) => {
       if (start != null && end != null){
-        var starting = start.format().toString();
-        var ending = end.format().toString();
+        this.setState({
+          startDate: start.format('MMM-DD'),
+          endDate: end.format('MMM-DD')
+        })
 
-        starting = starting.slice(5,10);
-        ending = ending.slice(5,10);
-
-        starting = starting.replace('-', '');
-        ending = ending.replace('-', '');
       }
 
-      var x = null;
-      var temp = [];
-      var labels = this.state.chartData.labels;
-        //filling temp array with current states date
-        for (var i = 0; i < this.state.chartData.labels.length; ++i){
-          x =  this.state.chartData.labels[i];
-          x = x.replace('-','');
-          x = parseInt(x);
-          temp.push(x);
-        }
-        var temp2 = [];
-        var temp3 = [];
-
-        //only getting the dates between the user's input
-        for (var i = 0; i < temp.length; ++i){
-          if (temp[i] >= starting && temp[i] <= ending){
-            temp3.push(i);
-          }
-        }
-
-        for (var i = 0; i < temp3.length; ++i){
-          temp2.push(labels[temp3[i]]); //labels for all devices
-        }
-
-        var newData = [];
-        var deviceData = [];
-
-        //parses data from each device based on user's range
-        for (var i = 0; i < this.state.chartData.datasets.length; ++i){
-          for (var j = 0; j < temp3.length; ++j){
-            newData.push(this.state.chartData.datasets[i].data[temp3[j]]); //data per device
-          }
-          deviceData.push(newData);
-          newData = [];
-        }
-        console.log(deviceData);
-        console.log(this.state.chartData);
-
-        this.setState({chartExtract: {
-            labels: temp2,
-            datasets: [
-              {
-                label: 'Device_1',
-                data: deviceData[0],
-                backgroundColor: 'rgba(63, 63, 191, 0.6)'
-              },
-              {
-                label: 'Device_2',
-                data: deviceData[1],
-                backgroundColor: 'rgba(255, 35, 35, 0.6)'
-              }
-            ]
-          },
-          chartBool: true
-        });
   }
+
   render() {
     const falseFunc = ()=>false;
     return (
@@ -207,7 +149,7 @@ class Section1 extends React.Component {
           <p> Pick a date </p>
           <Calendar range={this.range}/>
 
-          <Chart chartData = {this.state.chartBool ? this.state.chartExtract: this.state.chartData} title={this.state.location} chartType={this.state.chartType}/>
+          <Chart chartData = {this.state.chartData} title={this.state.location} chartType={this.state.chartType} startDate={this.state.startDate} endDate={this.state.endDate}/>
         </div>
       </div>
     );

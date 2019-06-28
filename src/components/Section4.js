@@ -5,7 +5,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import Chart from './Chart';
 import Calendar from './Calendar';
 
-class Section3 extends React.Component {
+class Section4 extends React.Component {
   constructor(){
     super();
     this.state = {
@@ -155,6 +155,7 @@ class Section3 extends React.Component {
             labels: temp2,
             datasets: [
               {
+                label: 'Insect Count',
                 data: deviceData[0],
                 backgroundColor: 'rgba(63, 63, 191, 0.6)'
               }
@@ -188,4 +189,4 @@ class Section3 extends React.Component {
   }
 };
 
-export default Section3;
+export default Section4;
