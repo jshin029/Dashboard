@@ -93,9 +93,7 @@ class Section3 extends React.Component {
 
   toggle = () => {
     this.setState(prevState => ({ celsius: !prevState.celsius }));
-  }
 
-  render() {
     if (this.state.celsius){
       var temp = [];
       for (var i = 0; i < this.state.chartData.datasets.length; ++i){
@@ -105,7 +103,7 @@ class Section3 extends React.Component {
         }
       }
     }
-    
+
     else {
       var temp = [];
       for (var i = 0; i < this.state.chartData.datasets.length; ++i){
@@ -115,6 +113,10 @@ class Section3 extends React.Component {
         }
       }
     }
+  }
+
+  render() {
+
 
     return (
       <div>
