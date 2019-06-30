@@ -23,7 +23,7 @@ class Chart extends Component {
 
 
   render(){
-    if (this.props.chartType=='Bar' && this.props.units=='Section3'){
+    if (this.props.chartType=='Bar' && this.props.units=='Section3' && this.props.celsius){
       return (
         <div className="chart">
           <Bar
@@ -67,7 +67,7 @@ class Chart extends Component {
       );
     }
 
-    else if  (this.props.chartType=='Line' && this.props.units=='Section3'){
+    else if  (this.props.chartType=='Line' && this.props.units=='Section3' && this.props.celsius){
       return (
         <div className="chart">
         <Line
@@ -111,7 +111,7 @@ class Chart extends Component {
       );
     }
 
-    else if  (this.props.chartType=='Pie' && this.props.units=='Section3'){
+    else if  (this.props.chartType=='Pie' && this.props.units=='Section3' && this.props.celsius){
       return (
         <div className="chart">
         <Pie
@@ -154,6 +154,260 @@ class Chart extends Component {
         </div>
       );
     }
+    if (this.props.chartType=='Bar' && this.props.units=='Section3' && !this.props.celsius){
+      return (
+        <div className="chart">
+          <Bar
+            data={this.props.chartData}
+            options={{
+              legend: {
+                display: false
+              },
+              scales: {
+                xAxes: [{
+                  type: 'time',
+                  time:
+                  {
+                    stepSize: 1,
+                    unit: 'day',
+                    format: 'MMM DD',
+                    parser: 'MMM DD',
+                    displayFormats: { month: 'MMM DD' },
+                    max: this.props.endDate,
+                    min: this.props.startDate
+                  }
+                }],
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true,
+                    max: 400,
+                    callback: function(value, index, values) {
+                      return value + "° F";
+                    }
+                  }
+                }]
+              },
+              maintainAspectRatio: false,
+              title:{
+                display:this.props.displayTitle,
+                text: this.props.title,
+              }
+            }}
+          />
+        </div>
+      );
+    }
+
+    else if  (this.props.chartType=='Line' && this.props.units=='Section3' && !this.props.celsius){
+      return (
+        <div className="chart">
+        <Line
+          data={this.props.chartData}
+          options={{
+            legend: {
+              display: false
+            },
+            scales: {
+              xAxes: [{
+                type: 'time',
+                time:
+                {
+                  stepSize: 1,
+                  unit: 'day',
+                  format: 'MMM DD',
+                  parser: 'MMM DD',
+                  displayFormats: { month: 'MMM DD' },
+                  max: this.props.endDate,
+                  min: this.props.startDate
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  max: 400,
+                  callback: function(value, index, values) {
+                    return value + "° F";
+                  }
+                }
+              }]
+            },
+            maintainAspectRatio: false,
+            title:{
+              display:this.props.displayTitle,
+              text: this.props.title,
+            }
+          }}
+        />
+        </div>
+      );
+    }
+
+    else if  (this.props.chartType=='Pie' && this.props.units=='Section3' && !this.props.celsius){
+      return (
+        <div className="chart">
+        <Pie
+          data={this.props.chartData}
+          options={{
+            legend: {
+              display: false
+            },
+            scales: {
+              xAxes: [{
+                type: 'time',
+                time:
+                {
+                  stepSize: 1,
+                  unit: 'day',
+                  format: 'MMM DD',
+                  parser: 'MMM DD',
+                  displayFormats: { month: 'MMM DD' },
+                  max: this.props.endDate,
+                  min: this.props.startDate
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  max: 400,
+                  callback: function(value, index, values) {
+                    return value + "° F";
+                  }
+                }
+              }]
+            },
+            maintainAspectRatio: false,
+            title:{
+              display:this.props.displayTitle,
+              text: this.props.title,
+            }
+          }}
+        />
+        </div>
+      );
+    }
+
+    else if (this.props.chartType=='Bar' && this.props.units=='Section1'){
+      return (
+        <div className="chart">
+          <Bar
+            data={this.props.chartData}
+            options={{
+              scales: {
+                xAxes: [{
+                  type: 'time',
+                  time:
+                  {
+                    stepSize: 1,
+                    unit: this.props.time,
+                    format: 'MMM DD',
+                    parser: 'MMM DD',
+                    displayFormats: { month: 'MMM DD' },
+                    max: this.props.endDate,
+                    min: this.props.startDate
+                  }
+                }],
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              },
+              maintainAspectRatio: false,
+              title:{
+                display:this.props.displayTitle,
+                text: this.props.title,
+              },
+              legend:{
+                display:this.props.displayLegend,
+                position:'right'
+              }
+            }}
+          />
+        </div>
+      );
+  }
+
+    else if (this.props.chartType=='Line' && this.props.units=='Section1'){
+      return (
+        <div className="chart">
+        <Line
+          data={this.props.chartData}
+          options={{
+            scales: {
+              xAxes: [{
+                type: 'time',
+                time:
+                {
+                  stepSize: 1,
+                  unit: this.props.time,
+                  format: 'MMM DD',
+                  parser: 'MMM DD',
+                  displayFormats: { month: 'MMM DD' },
+                  max: this.props.endDate,
+                  min: this.props.startDate
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            },
+            maintainAspectRatio: false,
+            title:{
+              display:this.props.displayTitle,
+              text: this.props.title,
+            },
+            legend:{
+              display:this.props.displayLegend,
+              position:'right'
+            }
+          }}
+        />
+        </div>
+      );
+  }
+
+  else if (this.props.chartType=='Pie' && this.props.units=='Section1'){
+    return (
+      <div className="chart">
+      <Pie
+        data={this.props.chartData}
+        options={{
+          scales: {
+            xAxes: [{
+              type: 'time',
+              time:
+              {
+                stepSize: 1,
+                unit: this.props.time,
+                format: 'MMM DD',
+                parser: 'MMM DD',
+                displayFormats: { month: 'MMM DD' },
+                max: this.props.endDate,
+                min: this.props.startDate
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          },
+          maintainAspectRatio: false,
+          title:{
+            display:this.props.displayTitle,
+            text: this.props.title,
+          },
+          legend:{
+            display:this.props.displayLegend,
+            position:'right'
+          }
+        }}
+      />
+      </div>
+    );
+  }
 
     else if (this.props.chartType=='Bar'){
       return (
@@ -276,7 +530,7 @@ class Chart extends Component {
       />
       </div>
     );
-}
+  }
 }
 };
 

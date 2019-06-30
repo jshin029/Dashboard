@@ -15,8 +15,10 @@ class Section1 extends React.Component {
       chartType:'Bar',
       startDate: '',
       endDate: '',
+      time: 'day',
       location: 'Cupertino',
-      focusedInput: null
+      focusedInput: null,
+      units: 'Section1'
     }
   }
 
@@ -45,7 +47,7 @@ class Section1 extends React.Component {
           },
         });
     }
-    
+
     BarClick = () => {
       this.setState({chartType:'Bar'});
     }
@@ -101,16 +103,31 @@ class Section1 extends React.Component {
       });
     }
 
+    Day = () => {
+      this.setState({time: 'day'});
+    }
+
+    Week = () => {
+      this.setState({time: 'week'});
+    }
+
+    Month = () => {
+      this.setState({time: 'month'});
+    }
+
+    Year = () => {
+      this.setState({time: 'year'});
+    }
+
+
     range = (start, end) => {
       if (start != null && end != null){
         this.setState({
           startDate: start.format('MMM-DD'),
           endDate: end.format('MMM-DD')
-        })
-
+        });
       }
-
-  }
+    }
 
   render() {
     return (
@@ -121,6 +138,12 @@ class Section1 extends React.Component {
           <button onClick={this.LineClick}>Line</button>
           <button onClick={this.PieClick}>Pie</button>
 
+          <p> View By: </p>
+          <button onClick={this.Day}>Day</button>
+          <button onClick={this.Week}>Week</button>
+          <button onClick={this.Month}>Month</button>
+          <button onClick={this.Year}>Year</button>
+
           <p> Insect Count (per location) </p>
           <button onClick={this.location1}>Cupertino</button>
           <button onClick={this.location2}>Riverside</button>
@@ -128,7 +151,9 @@ class Section1 extends React.Component {
           <p> Pick a date </p>
           <Calendar range={this.range}/>
 
-          <Chart chartData = {this.state.chartData} title={this.state.location} chartType={this.state.chartType} startDate={this.state.startDate} endDate={this.state.endDate}/>
+
+
+          <Chart chartData = {this.state.chartData} title={this.state.location} chartType={this.state.chartType} startDate={this.state.startDate} endDate={this.state.endDate} time={this.state.time} units={this.state.units}/>
         </div>
       </div>
     );

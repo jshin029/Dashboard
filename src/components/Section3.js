@@ -16,6 +16,7 @@ class Section3 extends React.Component {
       device: 'Sensor_1',
       units: 'Section3',
       celsius: true,
+      degrees: "° C",
       focusedInput: null
     }
   }
@@ -102,6 +103,7 @@ class Section3 extends React.Component {
           temp[j] = (temp[j] * 9/5) + 32;
         }
       }
+      this.setState({degrees: "° F"})
     }
 
     else {
@@ -112,12 +114,11 @@ class Section3 extends React.Component {
           temp[j] = (temp[j] - 32) * 5/9 ;
         }
       }
+      this.setState({degrees: "° C"})
     }
   }
 
   render() {
-
-
     return (
       <div>
         <div>
