@@ -33,6 +33,19 @@ class Chart extends Component {
                 display: false
               },
               scales: {
+                xAxes: [{
+                  type: 'time',
+                  time:
+                  {
+                    stepSize: 1,
+                    unit: 'day',
+                    format: 'MMM DD',
+                    parser: 'MMM DD',
+                    displayFormats: { month: 'MMM DD' },
+                    max: this.props.endDate,
+                    min: this.props.startDate
+                  }
+                }],
                 yAxes: [{
                   ticks: {
                     beginAtZero: true,
@@ -57,30 +70,43 @@ class Chart extends Component {
     else if  (this.props.chartType=='Line' && this.props.units=='Section3'){
       return (
         <div className="chart">
-          <Line
-            data={this.props.chartData}
-            options={{
-              legend: {
-                display: false
-              },
-              scales: {
-                yAxes: [{
-                  ticks: {
-                    beginAtZero: true,
-                    max: 400,
-                    callback: function(value, index, values) {
-                      return value + "° C";
-                    }
+        <Line
+          data={this.props.chartData}
+          options={{
+            legend: {
+              display: false
+            },
+            scales: {
+              xAxes: [{
+                type: 'time',
+                time:
+                {
+                  stepSize: 1,
+                  unit: 'day',
+                  format: 'MMM DD',
+                  parser: 'MMM DD',
+                  displayFormats: { month: 'MMM DD' },
+                  max: this.props.endDate,
+                  min: this.props.startDate
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  max: 400,
+                  callback: function(value, index, values) {
+                    return value + "° C";
                   }
-                }]
-              },
-              maintainAspectRatio: false,
-              title:{
-                display:this.props.displayTitle,
-                text: this.props.title,
-              }
-            }}
-          />
+                }
+              }]
+            },
+            maintainAspectRatio: false,
+            title:{
+              display:this.props.displayTitle,
+              text: this.props.title,
+            }
+          }}
+        />
         </div>
       );
     }
@@ -88,30 +114,43 @@ class Chart extends Component {
     else if  (this.props.chartType=='Pie' && this.props.units=='Section3'){
       return (
         <div className="chart">
-          <Pie
-            data={this.props.chartData}
-            options={{
-              legend: {
-                display: false
-              },
-              scales: {
-                yAxes: [{
-                  ticks: {
-                    beginAtZero: true,
-                    max: 400,
-                    callback: function(value, index, values) {
-                      return value + "° C";
-                    }
+        <Pie
+          data={this.props.chartData}
+          options={{
+            legend: {
+              display: false
+            },
+            scales: {
+              xAxes: [{
+                type: 'time',
+                time:
+                {
+                  stepSize: 1,
+                  unit: 'day',
+                  format: 'MMM DD',
+                  parser: 'MMM DD',
+                  displayFormats: { month: 'MMM DD' },
+                  max: this.props.endDate,
+                  min: this.props.startDate
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  max: 400,
+                  callback: function(value, index, values) {
+                    return value + "° C";
                   }
-                }]
-              },
-              maintainAspectRatio: false,
-              title:{
-                display:this.props.displayTitle,
-                text: this.props.title,
-              }
-            }}
-          />
+                }
+              }]
+            },
+            maintainAspectRatio: false,
+            title:{
+              display:this.props.displayTitle,
+              text: this.props.title,
+            }
+          }}
+        />
         </div>
       );
     }
@@ -160,38 +199,23 @@ class Chart extends Component {
     else if (this.props.chartType=='Line'){
       return (
         <div className="chart">
-          <Line
-            data={this.props.chartData}
-            options={{
-              scales: {
-                yAxes: [{
-                  ticks: {
-                    beginAtZero: true
-                  }
-                }]
-              },
-              maintainAspectRatio: false,
-              title:{
-                display:this.props.displayTitle,
-                text: this.props.title,
-              },
-              legend:{
-                display:this.props.displayLegend,
-                position:'right'
-              }
-            }}
-          />
-        </div>
-      );
-  }
-
-  else if (this.props.chartType=='Pie'){
-    return (
-      <div className="chart">
-        <Pie
+        <Line
           data={this.props.chartData}
           options={{
             scales: {
+              xAxes: [{
+                type: 'time',
+                time:
+                {
+                  stepSize: 1,
+                  unit: 'day',
+                  format: 'MMM DD',
+                  parser: 'MMM DD',
+                  displayFormats: { month: 'MMM DD' },
+                  max: this.props.endDate,
+                  min: this.props.startDate
+                }
+              }],
               yAxes: [{
                 ticks: {
                   beginAtZero: true
@@ -209,6 +233,47 @@ class Chart extends Component {
             }
           }}
         />
+        </div>
+      );
+  }
+
+  else if (this.props.chartType=='Pie'){
+    return (
+      <div className="chart">
+      <Pie
+        data={this.props.chartData}
+        options={{
+          scales: {
+            xAxes: [{
+              type: 'time',
+              time:
+              {
+                stepSize: 1,
+                unit: 'day',
+                format: 'MMM DD',
+                parser: 'MMM DD',
+                displayFormats: { month: 'MMM DD' },
+                max: this.props.endDate,
+                min: this.props.startDate
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          },
+          maintainAspectRatio: false,
+          title:{
+            display:this.props.displayTitle,
+            text: this.props.title,
+          },
+          legend:{
+            display:this.props.displayLegend,
+            position:'right'
+          }
+        }}
+      />
       </div>
     );
 }

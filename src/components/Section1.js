@@ -12,8 +12,6 @@ class Section1 extends React.Component {
     super();
     this.state = {
       chartData: {} ,
-      chartExtract: {},
-      chartBool: false,
       chartType:'Bar',
       startDate: '',
       endDate: '',
@@ -30,22 +28,24 @@ class Section1 extends React.Component {
     getChartData () {
       //make ajax/axios call
         this.setState({
-
           chartData:{
-               labels: ["Jul-10", "Jul-11", "Jul-12", "Jul-13", "Jul-14", "Jul-15"],
-               datasets: [
+              labels: ["Jun-06", "Jun-07", "Jun-08", "Jun-09", "Jun-10", "Jun-11", "Jun-12", "Jun-13"],
+              datasets: [
                 {
                   label:'Device_1',
-                  data:[5, 7, 11, 13, 15, 17],
-                  backgroundColor: 'rgba(63, 63, 191, 0.6)'
-
+                  data:[1, 4, 8, 2, 20, 23, 14, 9],
+                  backgroundColor:'rgba(63, 63, 191, 0.6)'
+                },
+                {
+                  label:'Device_2',
+                  data:[23, 17, 30, 5, 3, 2, 13, 15],
+                  backgroundColor: 'rgba(255, 35, 35, 0.6)'
                 }
               ]
           },
         });
-        console.log(this.state.chartData);
-
     }
+    
     BarClick = () => {
       this.setState({chartType:'Bar'});
     }
@@ -61,9 +61,8 @@ class Section1 extends React.Component {
     location1 = () => {
       this.setState({
         location:'Cupertino',
-        chartBool: false,
         chartData:{
-            labels: ['09-06', '09-07', '09-08', '09-09', '09-10', '09-11', '09-12', '09-13'],
+            labels: ["Jun-06", "Jun-07", "Jun-08", "Jun-09", "Jun-10", "Jun-11", "Jun-12", "Jun-13"],
             datasets: [
               {
                 label:'Device_1',
@@ -84,9 +83,8 @@ class Section1 extends React.Component {
     location2 = () => {
       this.setState({
         location:'Riverside',
-        chartBool: false,
         chartData:{
-            labels: ['05-06', '05-07', '05-08', '05-09', '05-10', '05-11', '05-12', '05-13'],
+            labels: ["May-05", "May-06", "May-07", "May-08", "May-09", "May-10", "May-11", "May-12"],
             datasets: [
               {
                 label:'Device_1',
@@ -97,23 +95,6 @@ class Section1 extends React.Component {
                 label:'Device_2',
                 data:[1, 3, 5, 7, 9, 11, 13, 15],
                 backgroundColor: 'rgba(255, 35, 35, 0.6)'
-              }
-            ]
-        }
-      });
-    }
-
-    location3 = () => {
-      this.setState({
-        location:'Irvine',
-        chartBool: false,
-        chartData:{
-            labels: ['03-01', '03-02', '03-03', '03-04', '03-05', '03-06', '03-07', '03-08'],
-            datasets: [
-              {
-                label:'Device_1',
-                data:[0, 5, 10, 15, 20, 15, 10, 5],
-                backgroundColor: 'rgba(63, 63, 191, 0.6)'
               }
             ]
         }
@@ -132,7 +113,6 @@ class Section1 extends React.Component {
   }
 
   render() {
-    const falseFunc = ()=>false;
     return (
       <div>
         <div>
@@ -144,7 +124,6 @@ class Section1 extends React.Component {
           <p> Insect Count (per location) </p>
           <button onClick={this.location1}>Cupertino</button>
           <button onClick={this.location2}>Riverside</button>
-          <button onClick={this.location3}>Irvine</button>
 
           <p> Pick a date </p>
           <Calendar range={this.range}/>
