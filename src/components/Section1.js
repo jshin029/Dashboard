@@ -5,6 +5,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import Chart from './Chart';
 import Calendar from './Calendar';
 import moment from 'moment';
+import './section.css';
 
 
 class Section1 extends React.Component {
@@ -139,7 +140,7 @@ class Section1 extends React.Component {
           <button onClick={this.PieClick}>Pie</button>
 
           <p> View By: </p>
-          <button onClick={this.Day}>Day</button>
+          <button class="date"onClick={this.Day}>Day</button>
           <button onClick={this.Week}>Week</button>
           <button onClick={this.Month}>Month</button>
           <button onClick={this.Year}>Year</button>
