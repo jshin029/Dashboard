@@ -4,9 +4,9 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import Chart from './Chart';
 import Calendar from './Calendar';
+import Menu from './Menu';
 import moment from 'moment';
 import './section.css';
-
 
 class Section1 extends React.Component {
   constructor(){
@@ -19,10 +19,9 @@ class Section1 extends React.Component {
       time: 'day',
       location: 'Cupertino',
       focusedInput: null,
-      units: 'Section1'
+      units: 'Section1',
     }
   }
-
 
     componentWillMount() {
       this.getChartData();
@@ -130,7 +129,10 @@ class Section1 extends React.Component {
       }
     }
 
+
+
   render() {
+
     return (
       <div>
         <div>
@@ -140,12 +142,16 @@ class Section1 extends React.Component {
           <button onClick={this.PieClick}>Pie</button>
 
           <p> View By: </p>
-          <button class="date"onClick={this.Day}>Day</button>
-          <button onClick={this.Week}>Week</button>
-          <button onClick={this.Month}>Month</button>
-          <button onClick={this.Year}>Year</button>
+          <div class="dates">
+            <p> View by </p>
+            <button class="date" onClick={this.Day}>Day</button>
+            <button class="date" onClick={this.Week}>Week</button>
+            <button class="date" onClick={this.Month}>Month</button>
+            <button class="date" onClick={this.Year}>Year</button>
+          </div>
 
           <p> Insect Count (per location) </p>
+          <Menu/>
           <button onClick={this.location1}>Cupertino</button>
           <button onClick={this.location2}>Riverside</button>
 
@@ -154,7 +160,7 @@ class Section1 extends React.Component {
 
 
 
-          <Chart chartData = {this.state.chartData} title={this.state.location} chartType={this.state.chartType} startDate={this.state.startDate} endDate={this.state.endDate} time={this.state.time} units={this.state.units}/>
+          <Chart chartData={this.state.chartData} title={this.state.location} chartType={this.state.chartType} startDate={this.state.startDate} endDate={this.state.endDate} time={this.state.time} units={this.state.units}/>
         </div>
       </div>
     );
