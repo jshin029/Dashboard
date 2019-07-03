@@ -19,11 +19,27 @@
 	top:1px;
 }
 .dates{
-  float: right;
+	float: right;
   padding-right: 20px;
 }
 .dropdown{
-	width: 200px;
+	padding-left: 5px;
+	padding-top: 10px;
+}
+.inner1{
+	padding: 10px;
+	padding-left: 20px;
+}
+.inner2{
+	width: 100%;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 0px;
+	padding-bottom: 20px;
+}
+.inner4{
+	width: 10%;
 }
 .title{
 	margin: 0;
@@ -35,18 +51,52 @@
 	padding: 5px;
 }
 .block{
-	margin: 20px;
+	margin: 10px;
 }
 .text{
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 700;
+	font-size: 14px;
+	margin: 0;
 }
 .outline{
-	border: 2px solid red;
-	border-radius: 5px;
+	border-radius: 6px;
+	background-color: white;
 }
-.gap{
-	width: 100%;
-	height: 5px;
+.outline2{
+	border-radius: 6px;
+	padding-bottom: 20px;
+	margin-top: 8px;
+}
+.location{
+	border-radius: 6px;
+	width: 30%;
+	background-color: white;
+}
+.timeframe{
+	border-radius: 6px;
+	width: 23%;
+	background-color: white;
+	margin-left: 10px;
+}
+.type{
+	border-radius: 6px;
+	width: 15%;
+	background-color: white;
+	margin-left: 10px;
+}
+.day{
+	border-radius: 6px;
+	width: 29.9%;
+	background-color: white;
+	margin-left: 10px;
+}
+.wrapper{
+	display: flex;
+}
+.graph{
+	margin-top: 10px;
+	border-radius: 6px;
+	background-color: white;
 }

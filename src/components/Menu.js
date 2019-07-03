@@ -25,9 +25,7 @@ class Menu extends Component {
       const {selectedOption} = this.state;
 
       return(
-        <div>
-          <Select value={selectedOption} onChange={this.handleChange} options={options}/>
-        </div>
+        <Select value={selectedOption} onChange={this.handleChange} options={options}/>
       );
     }
 }
