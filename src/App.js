@@ -16,7 +16,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Insect Count (per location)</h2>
         <Section1/>
         <h2>Insect Count (per device)</h2>
         <Section2/>

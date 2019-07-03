@@ -134,32 +134,33 @@ class Section1 extends React.Component {
   render() {
 
     return (
-      <div>
-        <div>
-          <p> Select a Chart's format </p>
-          <button onClick={this.BarClick}>Bar</button>
-          <button onClick={this.LineClick}>Line</button>
-          <button onClick={this.PieClick}>Pie</button>
-
-          <p> View By: </p>
-          <div class="dates">
-            <p> View by </p>
-            <button class="date" onClick={this.Day}>Day</button>
-            <button class="date" onClick={this.Week}>Week</button>
-            <button class="date" onClick={this.Month}>Month</button>
-            <button class="date" onClick={this.Year}>Year</button>
+      <div class="block">
+          <div class="outline">
+            <h2 class="title">Insect Count (per location)</h2>
           </div>
+          <div class="gap"></div>
+          <div class="outline">
+            <div class="dates">
+              <p class="text"> Chart type </p>
+              <button onClick={this.BarClick}>Bar</button>
+              <button onClick={this.LineClick}>Line</button>
+              <button onClick={this.PieClick}>Pie</button>
+            </div>
 
-          <p> Insect Count (per location) </p>
-          <Menu/>
-          <button onClick={this.location1}>Cupertino</button>
-          <button onClick={this.location2}>Riverside</button>
+            <div class="dates">
+              <p class="text"> View by </p>
+              <button class="date" onClick={this.Day}>Day</button>
+              <button class="date" onClick={this.Week}>Week</button>
+              <button class="date" onClick={this.Month}>Month</button>
+              <button class="date" onClick={this.Year}>Year</button>
+            </div>
 
-          <p> Pick a date </p>
+            <div class="dropdown">
+              <p class="text"> Select a location </p>
+              <Menu/>
+            </div>
+
           <Calendar range={this.range}/>
-
-
-
           <Chart chartData={this.state.chartData} title={this.state.location} chartType={this.state.chartType} startDate={this.state.startDate} endDate={this.state.endDate} time={this.state.time} units={this.state.units}/>
         </div>
       </div>

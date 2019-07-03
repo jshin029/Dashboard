@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Bar,Line,Pie} from 'react-chartjs-2';
 import moment from 'moment';
+import './Chart.css';
+
 
 class Chart extends Component {
   constructor(props){
@@ -154,7 +156,7 @@ class Chart extends Component {
         </div>
       );
     }
-    if (this.props.chartType=='Bar' && this.props.units=='Section3' && !this.props.celsius){
+    else if (this.props.chartType=='Bar' && this.props.units=='Section3' && !this.props.celsius){
       return (
         <div className="chart">
           <Bar
@@ -288,10 +290,11 @@ class Chart extends Component {
 
     else if (this.props.chartType=='Bar' && this.props.units=='Section1'){
       return (
-        <div className="chart">
+        <div className="chart2">
           <Bar
             data={this.props.chartData}
             options={{
+              responsive: true,
               scales: {
                 xAxes: [{
                   type: 'time',
