@@ -8,6 +8,18 @@ import Menu from './Menu';
 import moment from 'moment';
 import './section.css';
 
+const options = [
+  {value: 'Bar', label: 'Bar'},
+  {value: 'Line', label: 'Line'},
+  {value: 'Pie', label: 'Pie'}
+]
+
+const options2 = [
+  {value: 'Cupertino', label: 'Cupertino'},
+  {value: 'Riverside', label: 'Riverside'}
+]
+
+
 class Section1 extends React.Component {
   constructor(){
     super();
@@ -48,59 +60,52 @@ class Section1 extends React.Component {
         });
     }
 
-    BarClick = () => {
-      this.setState({chartType:'Bar'});
+    graphClick = (graph) => {
+      this.setState({chartType: graph});
     }
 
-    LineClick = () => {
-      this.setState({chartType:'Line'});
-    }
+    location = (loc) => {
+      if (loc === 'Cupertino'){
+        this.setState({
+          location:'Cupertino',
+          chartData:{
+              labels: ["Jun-06", "Jun-07", "Jun-08", "Jun-09", "Jun-10", "Jun-11", "Jun-12", "Jun-13"],
+              datasets: [
+                {
+                  label:'Device_1',
+                  data:[1, 4, 8, 2, 20, 23, 14, 9],
+                  backgroundColor:'rgba(63, 63, 191, 0.6)'
+                },
+                {
+                  label:'Device_2',
+                  data:[23, 17, 30, 5, 3, 2, 13, 15],
+                  backgroundColor: 'rgba(255, 35, 35, 0.6)'
+                }
+              ]
+          }
 
-    PieClick = () => {
-      this.setState({chartType:'Pie'});
-    }
-
-    location1 = () => {
-      this.setState({
-        location:'Cupertino',
-        chartData:{
-            labels: ["Jun-06", "Jun-07", "Jun-08", "Jun-09", "Jun-10", "Jun-11", "Jun-12", "Jun-13"],
-            datasets: [
-              {
-                label:'Device_1',
-                data:[1, 4, 8, 2, 20, 23, 14, 9],
-                backgroundColor:'rgba(63, 63, 191, 0.6)'
-              },
-              {
-                label:'Device_2',
-                data:[23, 17, 30, 5, 3, 2, 13, 15],
-                backgroundColor: 'rgba(255, 35, 35, 0.6)'
-              }
-            ]
-        }
-
-      });
-    }
-
-    location2 = () => {
-      this.setState({
-        location:'Riverside',
-        chartData:{
-            labels: ["May-05", "May-06", "May-07", "May-08", "May-09", "May-10", "May-11", "May-12"],
-            datasets: [
-              {
-                label:'Device_1',
-                data:[2, 4, 6, 8, 10, 12, 14, 16],
-                backgroundColor: 'rgba(63, 63, 191, 0.6)'
-              },
-              {
-                label:'Device_2',
-                data:[1, 3, 5, 7, 9, 11, 13, 15],
-                backgroundColor: 'rgba(255, 35, 35, 0.6)'
-              }
-            ]
-        }
-      });
+        });
+      }
+      else if (loc === 'Riverside'){
+        this.setState({
+          location:'Riverside',
+          chartData:{
+              labels: ["May-05", "May-06", "May-07", "May-08", "May-09", "May-10", "May-11", "May-12"],
+              datasets: [
+                {
+                  label:'Device_1',
+                  data:[2, 4, 6, 8, 10, 12, 14, 16],
+                  backgroundColor: 'rgba(63, 63, 191, 0.6)'
+                },
+                {
+                  label:'Device_2',
+                  data:[1, 3, 5, 7, 9, 11, 13, 15],
+                  backgroundColor: 'rgba(255, 35, 35, 0.6)'
+                }
+              ]
+          }
+        });
+      }
     }
 
     Day = () => {
@@ -132,7 +137,6 @@ class Section1 extends React.Component {
 
 
   render() {
-
     return (
       <div className="block">
           <div className="outline">
@@ -142,34 +146,34 @@ class Section1 extends React.Component {
           <div className="wrapper">
             <div className="location">
               <div className="inner1">
-                <p className="text"> Select a location</p>
+                <p className="text">Select a location</p>
               </div>
               <div className="inner2">
-                <Menu/>
+                <Menu location={this.location} options={options2}/>
               </div>
             </div>
             <div className="timeframe">
               <div className="inner1">
-                <p className="text"> Select a time frame</p>
+                <p className="text">Select a time frame</p>
               </div>
               <div className="inner2">
-                <Calendar/>
+                <Calendar range={this.range}/>
               </div>
             </div>
             <div className="type">
               <div className="inner1">
-                <p className="text"> Chart type</p>
+                <p className="text">Chart type</p>
               </div>
               <div className="inner2">
-                <Menu/>
+                <Menu graphClick={this.graphClick} options={options}/>
               </div>
             </div>
             <div className="day">
               <div className="inner1">
-                <p className="text"> View by</p>
+                <p className="text">View by</p>
               </div>
                 <div className="inner2">
-                  <button className="date" onClick={this.Day}>Day</button>
+                  <button className="date1" onClick={this.Day}>Day</button>
                   <button className="date" onClick={this.Week}>Week</button>
                   <button className="date" onClick={this.Month}>Month</button>
                   <button className="date" onClick={this.Year}>Year</button>

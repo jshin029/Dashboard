@@ -18,7 +18,7 @@ class App extends React.Component {
     return (
       <div className="main">
         <Section1/>
-        <h2>Insect Count (per device)</h2>
+        <div className="gap"></div>
         <Section2/>
         <h2>Degree Day (per device)</h2>
         <Section3/>

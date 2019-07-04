@@ -290,7 +290,7 @@ class Chart extends Component {
 
     else if (this.props.chartType=='Bar' && this.props.units=='Section1'){
       return (
-        <div className="chart2">
+        <div className="chart">
           <Bar
             data={this.props.chartData}
             options={{
