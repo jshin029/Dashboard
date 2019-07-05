@@ -133,9 +133,7 @@ class Section1 extends React.Component {
         });
       }
     }
-
-
-
+    
   render() {
     return (
       <div className="block">

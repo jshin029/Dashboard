@@ -6,6 +6,8 @@
 	background-color: #81DAF5;
 	margin-right: 4px;
 	width: 20%;
+	padding-top: 8px;
+	padding-bottom: 8px;
 }
 .date{
 	cursor: pointer;
@@ -16,6 +18,53 @@
 	margin-left: 4px;
 	margin-right: 4px;
 	width: 20%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.temperature{
+	cursor: pointer;
+	border: none;
+	color: white;
+	border-radius: 4px;
+	background-color: #81DAF5;
+	margin-right: 4px;
+	width: 48%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.humidity{
+	cursor: pointer;
+	border: none;
+	color: white;
+	border-radius: 4px;
+	background-color: #81DAF5;
+	margin-left: 4px;
+	width: 48%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.temp1{
+	cursor: pointer;
+	border: none;
+	color: white;
+	border-radius: 4px;
+	background-color: #5882FA;
+	margin-right: 4px;
+	width: 48%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+
+}
+.temp2{
+	cursor: pointer;
+	border: none;
+	color: white;
+	border-radius: 4px;
+	background-color: #FA5858;
+	margin-left: 4px;
+	width: 48%;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 .dates{
 	float: right;
@@ -98,4 +147,7 @@
 	margin-top: 10px;
 	border-radius: 6px;
 	background-color: white;
+}
+.temp{
+
 }

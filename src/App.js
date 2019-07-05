@@ -20,9 +20,9 @@ class App extends React.Component {
         <Section1/>
         <div className="gap"></div>
         <Section2/>
-        <h2>Degree Day (per device)</h2>
+        <div className="gap"></div>
         <Section3/>
-        <h2>Temperature (per device)</h2>
+        <div className="gap"></div>
         <Section4/>
       </div>
     );

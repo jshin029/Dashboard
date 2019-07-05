@@ -26,9 +26,11 @@ class Section2 extends React.Component {
     this.state = {
       chartData: {} ,
       chartType:'Bar',
+      time: 'day',
       startDate: '',
       endDate: '',
       device: 'Sensor_1',
+      units: 'Section1',
       focusedInput: null
     }
   }
@@ -103,6 +105,23 @@ class Section2 extends React.Component {
       }
     }
 
+    Day = () => {
+      this.setState({time: 'day'});
+    }
+
+    Week = () => {
+      this.setState({time: 'week'});
+    }
+
+    Month = () => {
+      this.setState({time: 'month'});
+    }
+
+    Year = () => {
+      this.setState({time: 'year'});
+    }
+
+
 render() {
   return (
     <div className="block">
@@ -148,7 +167,7 @@ render() {
           </div>
         </div>
         <div className="graph">
-          <Chart chartData = {this.state.chartData} title={this.state.device} chartType={this.state.chartType} startDate={this.state.startDate} endDate={this.state.endDate}/>
+          <Chart chartData = {this.state.chartData} title={this.state.device} chartType={this.state.chartType} startDate={this.state.startDate} endDate={this.state.endDate} time={this.state.time} units={this.state.units}/>
         </div>
       </div>
     </div>

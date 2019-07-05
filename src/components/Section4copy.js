@@ -19,7 +19,7 @@ const options2 = [
   {value: 'Sensor_2', label: 'Sensor_2'}
 ]
 
-class Section3 extends React.Component {
+class Section4 extends React.Component {
   constructor(){
     super();
     this.state = {
@@ -28,9 +28,7 @@ class Section3 extends React.Component {
       startDate: '',
       endDate: '',
       device: 'Sensor_1',
-      units: 'Section3',
-      celsius: true,
-      degrees: "° C",
+      units: 'Section4',
       focusedInput: null
     }
   }
@@ -46,8 +44,14 @@ class Section3 extends React.Component {
               labels: ["Jun-06", "Jun-07", "Jun-08", "Jun-09", "Jun-10", "Jun-11", "Jun-12", "Jun-13"],
               datasets: [
                 {
-                  data:[200, 250, 279, 300, 257, 325, 350, 150],
+                  label: 'Temp. (per device)',
+                  data:[10, 20, 30, 40, 50, 60, 70, 80],
                   backgroundColor:'rgba(63, 63, 191, 0.6)'
+                },
+                {
+                  label: 'Humidity (per device)',
+                  data:[45, 23, 15, 80, 72, 55, 33, 99],
+                  backgroundColor: 'rgba(255, 35, 35, 0.6)'
                 }
               ]
           }
@@ -67,8 +71,14 @@ class Section3 extends React.Component {
               labels: ["Jun-06", "Jun-07", "Jun-08", "Jun-09", "Jun-10", "Jun-11", "Jun-12", "Jun-13"],
               datasets: [
                 {
-                  data:[200, 250, 279, 300, 257, 325, 350, 150],
+                  label: 'Temp. (per device)',
+                  data:[10, 20, 30, 40, 50, 60, 70, 80],
                   backgroundColor:'rgba(63, 63, 191, 0.6)'
+                },
+                {
+                  label: 'Humidity (per device)',
+                  data:[45, 23, 15, 80, 72, 55, 33, 99],
+                  backgroundColor: 'rgba(255, 35, 35, 0.6)'
                 }
               ]
           }
@@ -81,8 +91,14 @@ class Section3 extends React.Component {
               labels: ["Jun-06", "Jun-07", "Jun-08", "Jun-09", "Jun-10", "Jun-11", "Jun-12", "Jun-13"],
               datasets: [
                 {
-                  data:[300, 330, 270, 280, 290, 310, 330, 320],
+                  label: 'Temp. (per device)',
+                  data:[10, 11, 12, 13, 14, 15, 16, 17],
                   backgroundColor: 'rgba(63, 63, 191, 0.6)'
+                },
+                {
+                  label: 'Humidity (per device)',
+                  data:[30, 32, 34, 80, 60, 55, 45, 99],
+                  backgroundColor: 'rgba(255, 35, 35, 0.6)'
                 }
               ]
           }
@@ -90,46 +106,21 @@ class Section3 extends React.Component {
       }
     }
 
-  range = (start, end) => {
-    if (start != null && end != null){
-      this.setState({
-        startDate: start.format('MMM-DD'),
-        endDate: end.format('MMM-DD')
-      })
-    }
-  }
-
-  celsius = () => {
-    if (this.state.degrees === "° F"){
-      var temp = [];
-      for (var i = 0; i < this.state.chartData.datasets.length; ++i){
-        temp = this.state.chartData.datasets[i].data
-        for (var j = 0; j < this.state.chartData.datasets[i].data.length; ++j){
-          temp[j] = (temp[j] - 32) * 5/9 ;
-        }
+    range = (start, end) => {
+      if (start != null && end != null){
+        this.setState({
+          startDate: start.format('MMM-DD'),
+          endDate: end.format('MMM-DD')
+        })
       }
-      this.setState({degrees: "° C", celsius: true});
     }
-  }
-
-  fahrenheit = () => {
-    if (this.state.degrees === "° C"){
-      var temp = [];
-      for (var i = 0; i < this.state.chartData.datasets.length; ++i){
-        temp = this.state.chartData.datasets[i].data
-        for (var j = 0; j < this.state.chartData.datasets[i].data.length; ++j){
-          temp[j] = (temp[j] * 9/5) + 32;
-        }
-      }
-      this.setState({degrees: "° F", celsius: false});
-    }
-  }
 
   render() {
+    const falseFunc = ()=>false;
     return (
       <div className="block">
           <div className="outline">
-            <h2 className="title">Degree Day (per device)</h2>
+            <h2 className="title">Insect Count (per location)</h2>
           </div>
           <div className="outline2">
           <div className="wrapper">
@@ -159,16 +150,14 @@ class Section3 extends React.Component {
             </div>
             <div className="day">
               <div className="inner1">
-                <p className="text">Toggle Celsius and Fahrenheit </p>
+                <p className="text">View by</p>
               </div>
                 <div className="inner2">
-                <button className="temp1" onClick={this.celsius}>° C</button>
-                <button className="temp2" onClick={this.fahrenheit}>° F</button>
                 </div>
             </div>
           </div>
           <div className="graph">
-          <Chart chartData = {this.state.chartData} title={this.state.device} chartType={this.state.chartType} units={this.state.units} startDate={this.state.startDate} endDate={this.state.endDate} celsius={this.state.celsius}/>
+            <Chart chartData = {this.state.chartData} title={this.state.device} chartType={this.state.chartType} units={this.state.units} startDate={this.state.startDate} endDate={this.state.endDate}/>
           </div>
         </div>
       </div>
@@ -176,4 +165,4 @@ class Section3 extends React.Component {
   }
 };
 
-export default Section3;
+export default Section4;
