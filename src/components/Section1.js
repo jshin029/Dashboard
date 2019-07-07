@@ -108,6 +108,14 @@ class Section1 extends React.Component {
       }
     }
 
+    left = () => {
+
+    }
+
+    right = () => {
+      
+    }
+
     Day = () => {
       this.setState({time: 'day'});
     }
@@ -133,7 +141,7 @@ class Section1 extends React.Component {
         });
       }
     }
-    
+
   render() {
     return (
       <div className="block">
@@ -181,6 +189,9 @@ class Section1 extends React.Component {
           <div className="graph">
             <Chart chartData={this.state.chartData} title={this.state.location} chartType={this.state.chartType} startDate={this.state.startDate} endDate={this.state.endDate} time={this.state.time} units={this.state.units}/>
           </div>
+          <button className="left" onClick={this.Year}></button>
+          <button className="right" onClick={this.Year}></button>
+
         </div>
       </div>
     );
