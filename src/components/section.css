@@ -5,7 +5,7 @@
 	border-radius: 4px;
 	background-color: #81DAF5;
 	margin-right: 4px;
-	width: 20%;
+	width: 23.2%;
 	padding-top: 8px;
 	padding-bottom: 8px;
 }
@@ -17,7 +17,7 @@
 	background-color: #81DAF5;
 	margin-left: 4px;
 	margin-right: 4px;
-	width: 20%;
+	width: 23.2%;
 	padding-top: 8px;
 	padding-bottom: 8px;
 }
@@ -53,7 +53,6 @@
 	width: 48%;
 	padding-top: 8px;
 	padding-bottom: 8px;
-
 }
 .temp2{
 	cursor: pointer;
@@ -115,7 +114,12 @@
 .outline2{
 	border-radius: 6px;
 	padding-bottom: 20px;
-	margin-top: 8px;
+	margin-top: 4px;
+}
+.outline3{
+	border-radius: 6px;
+	margin-top: 4px;
+	background-color: white;
 }
 .location{
 	border-radius: 6px;
@@ -126,28 +130,25 @@
 	border-radius: 6px;
 	width: 23%;
 	background-color: white;
-	margin-left: 10px;
+	margin-left: 4px;
 }
 .type{
 	border-radius: 6px;
 	width: 15%;
 	background-color: white;
-	margin-left: 10px;
+	margin-left: 4px;
 }
 .day{
 	border-radius: 6px;
-	width: 29.9%;
+	width: 31.1%;
 	background-color: white;
-	margin-left: 10px;
+	margin-left: 4px;
 }
 .wrapper{
 	display: flex;
 }
 .graph{
-	margin-top: 10px;
+	margin-top: 4px;
 	border-radius: 6px;
 	background-color: white;
-}
-.temp{
-
 }

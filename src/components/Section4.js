@@ -199,14 +199,14 @@ class Section4 extends React.Component {
               <div className="inner1">
                 <p className="text">View by</p>
               </div>
-                <div className="inner2">
+              <div className="inner2">
                 <button className="temperature" onClick={this.temperature}>Temp. (per device)</button>
                 <button className="humidity" onClick={this.humidity}>Humidity (per device)</button>
-                </div>
+              </div>
             </div>
           </div>
           <div className="graph">
-            <Chart chartData = {this.state.chartData} title={this.state.device} chartType={this.state.chartType} units={this.state.units} startDate={this.state.startDate} endDate={this.state.endDate}/>
+            <Chart chartData={this.state.chartData} title={this.state.device} chartType={this.state.chartType} units={this.state.units} startDate={this.state.startDate} endDate={this.state.endDate}/>
           </div>
         </div>
       </div>
