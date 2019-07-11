@@ -24,7 +24,6 @@ class Section5 extends React.Component {
         </div>
         <div className="outline3">
           <Menu options={location}/>
-          <Map/>
         </div>
       </div>
 
