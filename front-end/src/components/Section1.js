@@ -21,8 +21,8 @@ const options2 = [
 
 
 class Section1 extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       chartData: {} ,
       chartType:'Bar',

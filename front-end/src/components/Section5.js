@@ -10,8 +10,8 @@ const location = [
 ]
 
 class Section5 extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
     }
   }
