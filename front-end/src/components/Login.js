@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-
 class Login extends Component {
   constructor(props){
     super(props)
@@ -43,7 +42,7 @@ class Login extends Component {
           <input type="text" name="Username" placeholder="Username" value={this.state.Username} onChange={this.handleChange}/>
           <input type="password" name="Password" placeholder="Password" value={this.state.Password} onChange={this.handleChange}/>
           <button type="submit">Login</button>
-        </form>      
+        </form>
       </div>
     )
   }
