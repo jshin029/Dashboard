@@ -1,10 +1,13 @@
-import React, {Component} from 'react'
-class Login extends Component {
+import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from 'react-router-dom';
+
+class Log_in extends Component {
   constructor(props){
     super(props)
-    this.state ={
+    this.state = {
       Username: '',
-      Password: ''
+      Password: '',
+      redirectToReferrer: false
     }
   }
 
@@ -26,26 +29,35 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response)
+        this.setState({
+          Username: '',
+          Password: '',
+        })
+        this.props.validate(response['Response'])
+        if (response['Response'] === 'True'){
+          this.setState({
+            redirectToReferrer: true
+          });
+        }
       })
       .catch(err => console.log(err))
-      this.setState({
-        Username: '',
-        Password: '',
-      })
   }
 
   render(){
+    if (this.state.redirectToReferrer === true) {
+      return <Redirect to={{pathname: '/protected'}} />
+    }
+
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="Username" placeholder="Username" value={this.state.Username} onChange={this.handleChange}/>
           <input type="password" name="Password" placeholder="Password" value={this.state.Password} onChange={this.handleChange}/>
-          <button type="submit">Login</button>
+          <button type="submit">Sign in</button>
         </form>
       </div>
     )
   }
 };
 
-export default Login;
+export default Log_in;
