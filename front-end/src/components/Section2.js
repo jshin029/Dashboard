@@ -1,11 +1,9 @@
-import React, {component} from 'react';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import React, {Component} from 'react';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import Chart from './Chart';
 import Calendar from './Calendar';
 import Menu from './Menu';
-import moment from 'moment';
 import './section.css';
 
 const options = [
@@ -20,7 +18,7 @@ const options2 = [
 ]
 
 
-class Section2 extends React.Component {
+class Section2 extends Component {
   constructor(props){
     super(props);
     this.state = {

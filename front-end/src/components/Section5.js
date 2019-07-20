@@ -1,4 +1,4 @@
-import React, {component} from 'react';
+import React, {Component} from 'react';
 import Menu from './Menu';
 import Map from './Map';
 import './section.css';
@@ -9,7 +9,7 @@ const location = [
   {value: 'loc-3', label: 'loc-3'}
 ]
 
-class Section5 extends React.Component {
+class Section5 extends Component {
   constructor(props){
     super(props);
     this.state = {

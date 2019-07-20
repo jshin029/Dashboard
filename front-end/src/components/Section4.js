@@ -1,11 +1,9 @@
-import React, {component} from 'react';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import React, {Component} from 'react';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import Chart from './Chart';
 import Calendar from './Calendar';
 import Menu from './Menu';
-import moment from 'moment';
 import './section.css';
 
 const options = [
@@ -19,7 +17,7 @@ const options2 = [
   {value: 'Sensor_2', label: 'Sensor_2'}
 ]
 
-class Section4 extends React.Component {
+class Section4 extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -162,8 +160,6 @@ class Section4 extends React.Component {
     }
 
   render() {
-    console.log(this.state.chartData.datasets[0]);
-    const falseFunc = ()=>false;
     return (
       <div className="block">
           <div className="outline">
