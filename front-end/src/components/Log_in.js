@@ -25,7 +25,7 @@ class Log_in extends Component {
         Username: this.state.Username,
         Password: this.state.Password
       }),
-      method: 'POST',
+      method: 'POST'
     })
       .then(response => response.json())
       .then(response => {

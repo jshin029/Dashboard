@@ -412,6 +412,46 @@ class Chart extends Component {
     );
   }
 
+  else if (this.props.chartType=='Bar' && this.props.section==='section6'){
+    console.log("here")
+    return (
+      <div className="chart">
+        <Bar
+          data={this.props.chartData}
+          options={{
+            scales: {
+              xAxes: [{
+                type: 'time',
+                time:
+                {
+                  stepSize: 1,
+                  unit: 'hour',
+                  format: 'HH:mm',
+                  parser: 'HH:mm',
+                  displayFormats: { month: 'MMM DD' },
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            },
+            maintainAspectRatio: false,
+            title:{
+              display:this.props.displayTitle,
+              text: this.props.title,
+            },
+            legend:{
+              display:this.props.displayLegend,
+              position:'right'
+            }
+          }}
+        />
+      </div>
+    );
+  }
+
     else if (this.props.chartType=='Bar'){
       return (
         <div className="chart">
@@ -534,6 +574,7 @@ class Chart extends Component {
       </div>
     );
   }
+
 }
 };
 

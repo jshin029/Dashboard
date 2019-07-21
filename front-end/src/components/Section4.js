@@ -6,6 +6,7 @@ import Calendar from './Calendar';
 import Menu from './Menu';
 import './section.css';
 
+
 const options = [
   {value: 'Bar', label: 'Bar'},
   {value: 'Line', label: 'Line'},
@@ -45,7 +46,7 @@ class Section4 extends Component {
                   label: 'Temp. (per device)',
                   data:[10, 20, 30, 40, 50, 60, 70, 80],
                   backgroundColor:'rgba(63, 63, 191, 0.6)'
-                },
+                }
               ]
           }
         });

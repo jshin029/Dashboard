@@ -3,6 +3,7 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import Chart from './Chart';
 import Menu from './Menu';
+import moment from 'moment';
 import './section.css';
 
 const options = [
@@ -16,11 +17,12 @@ class Section4 extends Component {
     super(props);
     this.state = {
       chartDevice: null,
-      chartData: null,
+      chartData: {},
       deviceNumber: null,
       options2: [],
       chartType:'Bar',
       device: '',
+      section: 'section6',
       focusedInput: null
     }
   }
@@ -45,13 +47,43 @@ class Section4 extends Component {
 
   getdeviceData = () => {
     fetch( 'http://localhost:5000/deviceData', {
-      method: 'GET'
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify ({
+        deviceNumber: this.state.deviceNumber,
+      }),
+      method: 'POST'
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        this.setchartData(data)
       })
       .catch(err => console.log(err))
+  }
+
+  setchartData = (responseData) => {
+    var labels = []
+    var data = []
+    var temp = ''
+    for (var i = 0; i < 10; ++i){
+      temp = (responseData[i].capturedAt)
+      temp = temp.slice(17, 22)
+      labels.push(temp)
+      data.push(responseData[i].hourlyCount)
+    }
+    this.setState({
+      chartData:{
+        labels: labels,
+        datasets: [
+          {
+            label: "test",
+            data: data,
+            backgroundColor:'rgba(63, 63, 191, 0.6)'
+          }
+        ]
+      }
+    });
   }
 
   setLabels = () => {
@@ -74,9 +106,11 @@ class Section4 extends Component {
 
   componentDidMount(){
     this.getDevice()
+    this.getdeviceData()
   }
 
   render() {
+    console.log(this.state.chartData)
     return (
       <div className="block">
         <div className="outline">
@@ -102,7 +136,7 @@ class Section4 extends Component {
           </div>
         </div>
         <div className="graph">
-          <button onClick={this.getdeviceData}>Test</button>
+          <Chart chartData={this.state.chartData} title={this.state.device} chartType={this.state.chartType} section={this.state.section}/>
         </div>
       </div>
       </div>
