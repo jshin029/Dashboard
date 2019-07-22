@@ -14,6 +14,9 @@ class Menu extends Component {
     if(selectedOption.label === 'Bar' || selectedOption.label === 'Line' || selectedOption.label === 'Pie'){
       this.props.graphClick(selectedOption.label);
     }
+    else if(this.props.section==='section6'){
+      this.props.setdeviceNumber(selectedOption.label)
+    }
     else{
       this.props.location(selectedOption.label);
     }

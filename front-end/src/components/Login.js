@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
-class Log_in extends Component {
+class Login extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -60,4 +60,4 @@ class Log_in extends Component {
   }
 };
 
-export default Log_in;
+export default Login;

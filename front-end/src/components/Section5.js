@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Menu from './Menu';
-import Map from './Map';
 import './section.css';
 
 const location = [

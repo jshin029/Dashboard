@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Bar,Line,Pie} from 'react-chartjs-2';
-import moment from 'moment';
 import './Chart.css';
 
 
@@ -25,7 +24,7 @@ class Chart extends Component {
 
 
   render(){
-    if (this.props.chartType=='Bar' && this.props.units=='Section3' && this.props.celsius){
+    if (this.props.chartType==='Bar' && this.props.units==='Section3' && this.props.celsius){
       return (
         <div className="chart">
           <Bar
@@ -36,6 +35,7 @@ class Chart extends Component {
               },
               scales: {
                 xAxes: [{
+                  offset: true,
                   type: 'time',
                   time:
                   {
@@ -69,7 +69,7 @@ class Chart extends Component {
       );
     }
 
-    else if  (this.props.chartType=='Line' && this.props.units=='Section3' && this.props.celsius){
+    else if  (this.props.chartType==='Line' && this.props.units==='Section3' && this.props.celsius){
       return (
         <div className="chart">
         <Line
@@ -80,6 +80,7 @@ class Chart extends Component {
             },
             scales: {
               xAxes: [{
+                offset: true,
                 type: 'time',
                 time:
                 {
@@ -113,7 +114,7 @@ class Chart extends Component {
       );
     }
 
-    else if  (this.props.chartType=='Pie' && this.props.units=='Section3' && this.props.celsius){
+    else if  (this.props.chartType==='Pie' && this.props.units==='Section3' && this.props.celsius){
       return (
         <div className="chart">
         <Pie
@@ -124,6 +125,7 @@ class Chart extends Component {
             },
             scales: {
               xAxes: [{
+                offset: true,
                 type: 'time',
                 time:
                 {
@@ -156,7 +158,7 @@ class Chart extends Component {
         </div>
       );
     }
-    else if (this.props.chartType=='Bar' && this.props.units=='Section3' && !this.props.celsius){
+    else if (this.props.chartType==='Bar' && this.props.units==='Section3' && !this.props.celsius){
       return (
         <div className="chart">
           <Bar
@@ -167,6 +169,7 @@ class Chart extends Component {
               },
               scales: {
                 xAxes: [{
+                  offset: true,
                   type: 'time',
                   time:
                   {
@@ -200,7 +203,7 @@ class Chart extends Component {
       );
     }
 
-    else if  (this.props.chartType=='Line' && this.props.units=='Section3' && !this.props.celsius){
+    else if  (this.props.chartType==='Line' && this.props.units==='Section3' && !this.props.celsius){
       return (
         <div className="chart">
         <Line
@@ -211,6 +214,7 @@ class Chart extends Component {
             },
             scales: {
               xAxes: [{
+                offset: true,
                 type: 'time',
                 time:
                 {
@@ -244,7 +248,7 @@ class Chart extends Component {
       );
     }
 
-    else if  (this.props.chartType=='Pie' && this.props.units=='Section3' && !this.props.celsius){
+    else if  (this.props.chartType==='Pie' && this.props.units==='Section3' && !this.props.celsius){
       return (
         <div className="chart">
         <Pie
@@ -255,6 +259,7 @@ class Chart extends Component {
             },
             scales: {
               xAxes: [{
+                offset: true,
                 type: 'time',
                 time:
                 {
@@ -288,7 +293,7 @@ class Chart extends Component {
       );
     }
 
-    else if (this.props.chartType=='Bar' && this.props.units=='Section1'){
+    else if (this.props.chartType==='Bar' && this.props.units==='Section1'){
       return (
         <div className="chart">
           <Bar
@@ -297,6 +302,7 @@ class Chart extends Component {
               responsive: true,
               scales: {
                 xAxes: [{
+                  offset: true,
                   type: 'time',
                   time:
                   {
@@ -330,7 +336,7 @@ class Chart extends Component {
       );
   }
 
-    else if (this.props.chartType=='Line' && this.props.units=='Section1'){
+    else if (this.props.chartType==='Line' && this.props.units==='Section1'){
       return (
         <div className="chart">
         <Line
@@ -338,6 +344,7 @@ class Chart extends Component {
           options={{
             scales: {
               xAxes: [{
+                offset: true,
                 type: 'time',
                 time:
                 {
@@ -371,7 +378,7 @@ class Chart extends Component {
       );
   }
 
-  else if (this.props.chartType=='Pie' && this.props.units=='Section1'){
+  else if (this.props.chartType==='Pie' && this.props.units==='Section1'){
     return (
       <div className="chart">
       <Pie
@@ -379,6 +386,7 @@ class Chart extends Component {
         options={{
           scales: {
             xAxes: [{
+              offset: true,
               type: 'time',
               time:
               {
@@ -412,8 +420,7 @@ class Chart extends Component {
     );
   }
 
-  else if (this.props.chartType=='Bar' && this.props.section==='section6'){
-    console.log("here")
+  else if (this.props.chartType==='Bar' && this.props.section==='section6'){
     return (
       <div className="chart">
         <Bar
@@ -421,6 +428,7 @@ class Chart extends Component {
           options={{
             scales: {
               xAxes: [{
+                offset: true,
                 type: 'time',
                 time:
                 {
@@ -428,7 +436,9 @@ class Chart extends Component {
                   unit: 'hour',
                   format: 'HH:mm',
                   parser: 'HH:mm',
-                  displayFormats: { month: 'MMM DD' },
+                  min: '00:00',
+                  max: '23:00',
+                  displayFormats: { hour: 'HH:mm' }
                 }
               }],
               yAxes: [{
@@ -452,7 +462,7 @@ class Chart extends Component {
     );
   }
 
-    else if (this.props.chartType=='Bar'){
+    else if (this.props.chartType==='Bar'){
       return (
         <div className="chart">
           <Bar
@@ -460,6 +470,7 @@ class Chart extends Component {
             options={{
               scales: {
                 xAxes: [{
+                  offset: true,
                   type: 'time',
                   time:
                   {
@@ -493,7 +504,7 @@ class Chart extends Component {
       );
   }
 
-    else if (this.props.chartType=='Line'){
+    else if (this.props.chartType==='Line'){
       return (
         <div className="chart">
         <Line
@@ -501,6 +512,7 @@ class Chart extends Component {
           options={{
             scales: {
               xAxes: [{
+                offset: true,
                 type: 'time',
                 time:
                 {
@@ -534,7 +546,7 @@ class Chart extends Component {
       );
   }
 
-  else if (this.props.chartType=='Pie'){
+  else if (this.props.chartType==='Pie'){
     return (
       <div className="chart">
       <Pie
@@ -542,6 +554,7 @@ class Chart extends Component {
         options={{
           scales: {
             xAxes: [{
+              offset: true,
               type: 'time',
               time:
               {

@@ -3,7 +3,6 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import Chart from './Chart';
 import Menu from './Menu';
-import moment from 'moment';
 import './section.css';
 
 const options = [
@@ -45,6 +44,13 @@ class Section4 extends Component {
       .catch(err => console.log(err))
   }
 
+  setdeviceNumber = (device) => {
+    this.setState({
+      deviceNumber: device
+    });
+    this.getdeviceData()
+  }
+
   getdeviceData = () => {
     fetch( 'http://localhost:5000/deviceData', {
       headers: {
@@ -66,7 +72,7 @@ class Section4 extends Component {
     var labels = []
     var data = []
     var temp = ''
-    for (var i = 0; i < 10; ++i){
+    for (var i = 0; i < responseData.length; ++i){
       temp = (responseData[i].capturedAt)
       temp = temp.slice(17, 22)
       labels.push(temp)
@@ -123,7 +129,7 @@ class Section4 extends Component {
               <p className="text">Select a device</p>
             </div>
             <div className="inner2">
-              <Menu location={this.location} options={this.state.options2}/>
+              <Menu setdeviceNumber={this.setdeviceNumber} options={this.state.options2} section={this.state.section}/>
             </div>
           </div>
           <div className="type">
