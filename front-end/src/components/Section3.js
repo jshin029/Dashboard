@@ -4,7 +4,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import Chart from './Chart';
 import Calendar from './Calendar';
 import Menu from './Menu';
-import './section.css';
+import './css/Section.css';
 
 const options = [
   {value: 'Bar', label: 'Bar'},

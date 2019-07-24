@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Menu from './Menu';
-import './section.css';
+import './css/Section.css';
 
 const location = [
   {value: 'loc-1', label: 'loc-1'},

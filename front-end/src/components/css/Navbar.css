@@ -1,0 +1,17 @@
+.Navbar .Wrapper {
+  display: flex;
+  background-color: white;
+}
+.Navbar .buttons {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-style: normal;
+  font-size: 16px;
+	cursor: pointer;
+	border: none;
+	width: 8%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.Navbar .buttons:hover {
+  background-color: #F77A6F;
+}
