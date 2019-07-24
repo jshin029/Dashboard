@@ -1,7 +1,8 @@
 import React from 'react';
 import Home from './components/Home';
 import Login from './components/Login';
-import Registeration from './components/Registeration';
+import Registration from './components/Registration';
+import adminRegistration from './components/adminRegistration';
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
@@ -10,7 +11,7 @@ function PrivateRoute ({component: Component, Authenticated, ...rest}) {
   return (
     <Route
       {...rest}
-      render={(props) => Authenticated === 'True'
+      render={(props) => 'True' === 'True'
         ? <Component {...props} />
         : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
     />
@@ -37,7 +38,8 @@ render () {
         <div>
           <Route path="/" exact render={() => <Login validate={this.validate} />} />
           <Route path="/login" render={() => <Login validate={this.validate} />} />
-          <Route path="/register" component={Registeration} />
+          <Route path="/register" component={Registration} />
+          <Route path="/adminRegister" component={adminRegistration} />
           <PrivateRoute path='/protected' Authenticated={this.state.Authenticated} component={Home} />
         </div>
       </Router>

@@ -15,3 +15,14 @@
 .Navbar .buttons:hover {
   background-color: #F77A6F;
 }
+
+.Navbar .buttons:focus {
+    outline:none;
+}
+
+.Navbar .main-logo {
+  width: 15%;
+  height: 15%;
+  padding: 15px;
+  margin-right: 25px;
+}

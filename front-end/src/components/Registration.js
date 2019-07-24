@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Registeration extends Component {
+class registration extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -16,7 +16,7 @@ class Registeration extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    fetch( 'http://localhost:5000/registeration', {
+    fetch( 'http://localhost:5000/registration', {
       headers: {
         'Content-Type': 'application/json'
       },
@@ -55,4 +55,4 @@ class Registeration extends Component {
   }
 };
 
-export default Registeration;
+export default registration;

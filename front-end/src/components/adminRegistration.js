@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
 
-class Login extends Component {
+class registration extends Component {
   constructor(props){
     super(props)
     this.state = {
       Username: '',
-      Password: '',
-      redirectToReferrer: false
+      Email: '',
+      Password: ''
     }
   }
 
@@ -17,47 +16,41 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    fetch( 'http://localhost:5000/login', {
+    fetch( 'http://localhost:5000/adminRegistration', {
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify ({
         Username: this.state.Username,
+        Email: this.state.Email,
         Password: this.state.Password
       }),
-      method: 'POST'
+      method: 'POST',
     })
       .then(response => response.json())
       .then(response => {
-        this.setState({
-          Username: '',
-          Password: '',
-        })
-        this.props.validate(response[0]['Response'])
-        if (response[0]['Response'] === 'True'){
-          this.setState({
-            redirectToReferrer: true
-          });
-        }
+        console.log(response)
       })
       .catch(err => console.log(err))
+      this.setState({
+        Username: '',
+        Password: '',
+        Email: ''
+      })
   }
 
   render(){
-    if (this.state.redirectToReferrer === true) {
-      return <Redirect to={{pathname: '/protected'}} />
-    }
-
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="Username" placeholder="Username" value={this.state.Username} onChange={this.handleChange}/>
+          <input type="text" name="Email" placeholder="Email" value={this.state.Email} onChange={this.handleChange}/>
           <input type="password" name="Password" placeholder="Password" value={this.state.Password} onChange={this.handleChange}/>
-          <button type="submit">Sign in</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     )
   }
 };
 
-export default Login;
+export default registration;
