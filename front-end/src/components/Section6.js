@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
+import Calendar from './Calendar';
+import Singledate from './Singledate';
 import Chart from './Chart';
 import Menu from './Menu';
 import './css/Section.css';
@@ -22,6 +24,7 @@ class Section4 extends Component {
       chartType:'Bar',
       device: '',
       section: 'section6',
+      Date: '',
       focusedInput: null
     }
   }
@@ -58,6 +61,25 @@ class Section4 extends Component {
       },
       body: JSON.stringify ({
         deviceNumber: this.state.deviceNumber,
+        date: null
+      }),
+      method: 'POST'
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.setchartData(data)
+      })
+      .catch(err => console.log(err))
+  }
+
+  getdeviceDataDate = (convert) => {
+    fetch( 'http://localhost:5000/deviceData', {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify ({
+        deviceNumber: this.state.deviceNumber,
+        date: convert
       }),
       method: 'POST'
     })
@@ -110,13 +132,22 @@ class Section4 extends Component {
     }
   }
 
+  range = (date) => {
+    if (date != null){
+      var convert = date.format('YYYY-MM-DD')
+      this.setState({
+        Date: convert
+      })
+      this.getdeviceDataDate(convert)
+    }
+  }
+
   componentDidMount(){
     this.getDevice()
     this.getdeviceData()
   }
 
   render() {
-    console.log(this.state.chartData)
     return (
       <div className="block">
         <div className="outline">
@@ -138,6 +169,14 @@ class Section4 extends Component {
             </div>
             <div className="inner2">
               <Menu graphClick={this.graphClick} options={options}/>
+            </div>
+          </div>
+          <div className="timeframe">
+            <div className="inner1">
+              <p className="text">Select a time frame</p>
+            </div>
+            <div className="inner2">
+              <Singledate range={this.range}/>
             </div>
           </div>
         </div>
