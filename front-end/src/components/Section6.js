@@ -24,7 +24,7 @@ class Section4 extends Component {
       chartType:'Bar',
       device: '',
       section: 'section6',
-      Date: '',
+      Date: null,
       focusedInput: null
     }
   }
@@ -51,7 +51,12 @@ class Section4 extends Component {
     this.setState({
       deviceNumber: device
     });
-    this.getdeviceData()
+    if (this.state.Date){
+      this.getdeviceDataDate(this.state.Date)
+    }
+    else{
+      this.getdeviceData()
+    }
   }
 
   getdeviceData = () => {
@@ -148,6 +153,7 @@ class Section4 extends Component {
   }
 
   render() {
+    console.log(this.state.Date)
     return (
       <div className="block">
         <div className="outline">
