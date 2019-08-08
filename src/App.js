@@ -38,6 +38,7 @@ render () {
     return (
       <Router>
         <div>
+          <div>hello</div>
           <Route path="/" exact render={() => <Login validate={this.validate} />} />
           <Route path="/login" render={() => <Login validate={this.validate} />} />
           <Route path="/register" component={Registration} />
