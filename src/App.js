@@ -5,7 +5,7 @@ import Registration from './components/Registration';
 import ControlPanel from './components/ControlPanel';
 import adminRegistration from './components/adminRegistration';
 import './App.css';
-import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route, HashRouter, Redirect} from 'react-router-dom';
 
 
 function PrivateRoute ({component: Component, Authenticated, ...rest}) {
@@ -36,9 +36,8 @@ class App extends React.Component {
 render () {
   console.log(this.state.Authenticated)
     return (
-      <Router>
+      <HashRouter basename="/">
         <div>
-          <div>hello</div>
           <Route path="/" exact render={() => <Login validate={this.validate} />} />
           <Route path="/login" render={() => <Login validate={this.validate} />} />
           <Route path="/register" component={Registration} />
@@ -46,7 +45,7 @@ render () {
           <Route path="/controlPanel" component={ControlPanel} />
           <PrivateRoute path='/protected' Authenticated={this.state.Authenticated} component={Home} />
         </div>
-      </Router>
+      </HashRouter>
     )
   }
 }

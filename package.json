@@ -1,7 +1,7 @@
 {
   "name": "Dashboard",
   "version": "0.1.0",
-  "homepage": "https://jshin029.github.io/Dashboard",
+  "homepage": "http://jshin029.github.io/Dashboard",
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
