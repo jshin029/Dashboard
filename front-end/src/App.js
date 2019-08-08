@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './components/Home';
 import Login from './components/Login';
 import Registration from './components/Registration';
+import ControlPanel from './components/ControlPanel';
 import adminRegistration from './components/adminRegistration';
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
@@ -17,6 +18,7 @@ function PrivateRoute ({component: Component, Authenticated, ...rest}) {
     />
   )
 }
+
 
 class App extends React.Component {
   constructor(){
@@ -40,6 +42,7 @@ render () {
           <Route path="/login" render={() => <Login validate={this.validate} />} />
           <Route path="/register" component={Registration} />
           <Route path="/adminRegister" component={adminRegistration} />
+          <Route path="/controlPanel" component={ControlPanel} />
           <PrivateRoute path='/protected' Authenticated={this.state.Authenticated} component={Home} />
         </div>
       </Router>

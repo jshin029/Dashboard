@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
+import jwt from 'jsonwebtoken';
 
 class Login extends Component {
   constructor(props){
@@ -17,7 +18,7 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    fetch( 'http://localhost:5000/login', {
+    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com/login', {
       headers: {
         'Content-Type': 'application/json'
       },
@@ -31,10 +32,9 @@ class Login extends Component {
       .then(response => {
         this.setState({
           Username: '',
-          Password: '',
+          Password: ''
         })
-        this.props.validate(response[0]['Response'])
-        if (response[0]['Response'] === 'True'){
+        if (response['Response'] === 'True'){
           this.setState({
             redirectToReferrer: true
           });

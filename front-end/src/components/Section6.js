@@ -34,7 +34,7 @@ class Section4 extends Component {
   }
 
   getDevice = () => {
-    fetch( 'http://localhost:5000/device', {
+    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com/device', {
       method: 'GET'
     })
       .then(response => response.json())
@@ -52,7 +52,8 @@ class Section4 extends Component {
       deviceNumber: device
     });
     if (this.state.Date){
-      this.getdeviceDataDate(this.state.Date)
+      console.log(this.state.Date)
+      this.getdeviceDataDate(this.state.Date, device)
     }
     else{
       this.getdeviceData()
@@ -60,7 +61,7 @@ class Section4 extends Component {
   }
 
   getdeviceData = () => {
-    fetch( 'http://localhost:5000/deviceData', {
+    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com/deviceData', {
       headers: {
         'Content-Type': 'application/json'
       },
@@ -77,19 +78,20 @@ class Section4 extends Component {
       .catch(err => console.log(err))
   }
 
-  getdeviceDataDate = (convert) => {
-    fetch( 'http://localhost:5000/deviceData', {
+  getdeviceDataDate = (convert, device) => {
+    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com/deviceData', {
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify ({
-        deviceNumber: this.state.deviceNumber,
+        deviceNumber: device,
         date: convert
       }),
       method: 'POST'
     })
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         this.setchartData(data)
       })
       .catch(err => console.log(err))
@@ -143,7 +145,9 @@ class Section4 extends Component {
       this.setState({
         Date: convert
       })
-      this.getdeviceDataDate(convert)
+      if (this.state.deviceNumber){
+        this.getdeviceDataDate(convert)
+      }
     }
   }
 
@@ -153,7 +157,6 @@ class Section4 extends Component {
   }
 
   render() {
-    console.log(this.state.Date)
     return (
       <div className="block">
         <div className="outline">

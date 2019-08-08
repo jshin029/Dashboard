@@ -420,47 +420,47 @@ class Chart extends Component {
     );
   }
 
-  else if (this.props.chartType==='Bar' && this.props.section==='section6'){
-    return (
-      <div className="chart">
-        <Bar
-          data={this.props.chartData}
-          options={{
-            scales: {
-              xAxes: [{
-                offset: true,
-                type: 'time',
-                time:
-                {
-                  stepSize: 1,
-                  unit: 'hour',
-                  format: 'HH:mm',
-                  parser: 'HH:mm',
-                  min: '00:00',
-                  max: '23:00',
-                  displayFormats: { hour: 'HH:mm' }
-                }
-              }],
-              yAxes: [{
-                ticks: {
-                  beginAtZero: true
-                }
-              }]
-            },
-            maintainAspectRatio: false,
-            title:{
-              display:this.props.displayTitle,
-              text: this.props.title,
-            },
-            legend:{
-              display:this.props.displayLegend,
-              position:'right'
-            }
-          }}
-        />
-      </div>
-    );
-  }
+
+    else if (this.props.chartType==='Bar' && this.props.section==='section6'){
+      return (
+        <div className="chart">
+          <Bar
+            data={this.props.chartData}
+            options={{
+              scales: {
+                xAxes: [{
+                  offset: true,
+                  type: 'time',
+                  time:
+                  {
+                    stepSize: 1,
+                    unit: 'hour',
+                    format: 'HH:mm',
+                    parser: 'HH:mm',
+                    min: '00:00',
+                    max: '24:00',
+                    displayFormats: { hour: 'HH:mm' }
+                  }
+                }],
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              },
+              maintainAspectRatio: false,
+              title:{
+                display:this.props.displayTitle,
+                text: this.props.title,
+              },
+              legend:{
+                display: false
+              }
+            }}
+          />
+        </div>
+      );
+    }
 
     else if (this.props.chartType==='Bar'){
       return (
