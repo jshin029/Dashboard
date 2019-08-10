@@ -20,10 +20,6 @@ class App extends React.Component {
     return (
       <div className="main">
         <Navbar/>
-        <Section1/>
-        <Section2/>
-        <Section3/>
-        <Section4/>
         <Section6/>
       </div>
     );

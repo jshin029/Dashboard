@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import jwt from 'jsonwebtoken';
+import './css/Login.css';
+
 
 class Login extends Component {
   constructor(props){
@@ -49,12 +51,15 @@ class Login extends Component {
     }
 
     return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="Username" placeholder="Username" value={this.state.Username} onChange={this.handleChange}/>
-          <input type="password" name="Password" placeholder="Password" value={this.state.Password} onChange={this.handleChange}/>
-          <button type="submit">Sign in</button>
-        </form>
+      <div className="loginBg">
+          <div className="loginInner">
+            <div className="signIn">SIGN IN NOW</div>
+            <form onSubmit={this.handleSubmit}>
+              <input className="input" type="text" name="Username" placeholder="Username" value={this.state.Username} onChange={this.handleChange}/>
+              <input className="input" type="password" name="Password" placeholder="Password" value={this.state.Password} onChange={this.handleChange}/>
+              <button className="loginButton" type="submit">SIGN IN</button>
+            </form>
+          </div>
       </div>
     )
   }

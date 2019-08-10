@@ -1,0 +1,55 @@
+.loginBg {
+  width: 100vw;
+  height: 100vh;
+  background-color: #F1F2F7;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.loginInner{
+  position: absolute;
+  width: 25%;
+  height: 45%;
+  background-color: white;
+  border-radius: 5px;
+  margin: auto;
+  top: 10%;
+  left: 0;
+  right: 0;
+}
+.input {
+  width: 90%;
+  margin-top: 20px;
+  padding: 8px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #F0F0F0;
+  box-shadow: none;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.loginButton {
+  color: white;
+  font-size: 20px;
+  width: 90%;
+  border: none;
+  background-color: #F6796E;
+  padding: 15px;
+  margin-top: 40px;
+  border-radius: 8px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.signIn{
+  padding: 20px;
+  color: white;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  background-color: #42CABF;
+  border-radius: 5px 5px 0px 0px;
+}
