@@ -10,8 +10,8 @@ textarea:focus, input:focus{
 
 .loginInner{
   position: absolute;
-  width: 25%;
-  height: 45%;
+  width: 20%;
+  height: 40%;
   background-color: white;
   border-radius: 5px;
   margin: auto;
