@@ -8,12 +8,11 @@ import './App.css';
 import { BrowserRouter as Router, Route, HashRouter, Redirect} from 'react-router-dom';
 
 
+
 function PrivateRoute ({component: Component, Authenticated, ...rest}) {
   return (
-    <Route
-      {...rest}
-      render={(props) => 'True' === 'True'
-        ? <Component {...props} />
+    <Route {...rest} render={(props) => Authenticated === 'True'
+        ? <Component Authenticated={Authenticated} />
         : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
     />
   )
@@ -44,6 +43,7 @@ render () {
           <Route path="/adminRegister" component={adminRegistration} />
           <Route path="/controlPanel" component={ControlPanel} />
           <PrivateRoute path='/protected' Authenticated={this.state.Authenticated} component={Home} />
+
         </div>
       </HashRouter>
     )

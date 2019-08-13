@@ -5,6 +5,7 @@ import Calendar from './Calendar';
 import Singledate from './Singledate';
 import Chart from './Chart';
 import Menu from './Menu';
+import { MyContext } from './Home';
 import './css/Section.css';
 
 const options = [
@@ -159,6 +160,11 @@ class Section4 extends Component {
   render() {
     return (
       <div className="block">
+        <MyContext.Consumer>
+          {(context) => (
+            <p>{context.state.name}</p>
+          )}
+        </MyContext.Consumer>
         <div className="outline">
           <h2 className="title">Insect Count (per hour)</h2>
         </div>
