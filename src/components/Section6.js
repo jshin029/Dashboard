@@ -11,7 +11,6 @@ import './css/Section.css';
 const options = [
   {value: 'Bar', label: 'Bar'},
   {value: 'Line', label: 'Line'},
-  {value: 'Pie', label: 'Pie'}
 ]
 
 class Section4 extends Component {
@@ -35,7 +34,7 @@ class Section4 extends Component {
   }
 
   getDevice = () => {
-    fetch( 'http://localhost:5000/device', {
+    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com//device', {
       method: 'GET'
     })
       .then(response => response.json())
@@ -59,7 +58,7 @@ class Section4 extends Component {
   }
 
   getdeviceData = () => {
-    fetch( 'http://localhost:5000/deviceData', {
+    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com//deviceData', {
       headers: {
         'Content-Type': 'application/json'
       },
@@ -77,7 +76,7 @@ class Section4 extends Component {
   }
 
   getdeviceDataDate = (convert, device) => {
-    fetch( 'http://localhost:5000/deviceData', {
+    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com//deviceData', {
       headers: {
         'Content-Type': 'application/json'
       },

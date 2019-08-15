@@ -20,7 +20,7 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    fetch( 'http://localhost:5000/login', {
+    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com//login', {
       headers: {
         'Content-Type': 'application/json'
       },

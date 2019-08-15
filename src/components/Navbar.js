@@ -42,8 +42,8 @@ class Navbar extends Component {
       <div className="Navbar">
         <div className="Wrapper">
           <img className="main-logo" src={logo}></img>
-          <button onClick={this.setRedirectDash} className="buttons">Dashboard</button>
-          <button onClick={this.setRedirectControl} className="buttons">Control Panel</button>
+          <button className="buttons">Dashboard</button>
+          <button className="buttons">Control Panel</button>
         </div>
       </div>
     );

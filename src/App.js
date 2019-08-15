@@ -7,9 +7,8 @@ import adminRegistration from './components/adminRegistration';
 import './App.css';
 import { BrowserRouter as Router, Route, HashRouter, Redirect} from 'react-router-dom';
 
-
-
 function PrivateRoute ({component: Component, Authenticated, Email, Perm, ...rest}) {
+  console.log(Authenticated)
   return (
     <Route {...rest} render={(props) => Authenticated === 'True'
         ? <Component Email={Email} Perm={Perm}/>
@@ -17,7 +16,6 @@ function PrivateRoute ({component: Component, Authenticated, Email, Perm, ...res
     />
   )
 }
-
 
 class App extends React.Component {
   constructor(){
@@ -48,7 +46,6 @@ render () {
           <Route path="/adminRegister" component={adminRegistration} />
           <Route path="/controlPanel" render={() => <ControlPanel Email={this.state.Email} Perm={this.state.Perm} />}/>
           <PrivateRoute path='/protected' Authenticated={this.state.Authenticated} Email={this.state.Email} Perm={this.state.Perm} component={Home} />
-
         </div>
       </HashRouter>
     )
