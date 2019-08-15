@@ -6,7 +6,8 @@ class registration extends Component {
     this.state = {
       Username: '',
       Email: '',
-      Password: ''
+      Password: '',
+      Admin: ''
     }
   }
 
@@ -23,7 +24,8 @@ class registration extends Component {
       body: JSON.stringify ({
         Username: this.state.Username,
         Email: this.state.Email,
-        Password: this.state.Password
+        Password: this.state.Password,
+        Admin: this.state.Admin
       }),
       method: 'POST',
     })
@@ -35,7 +37,8 @@ class registration extends Component {
       this.setState({
         Username: '',
         Password: '',
-        Email: ''
+        Email: '',
+        Admin: ''
       })
   }
     //run api call to flask
@@ -48,6 +51,7 @@ class registration extends Component {
           <input type="text" name="Username" placeholder="Username" value={this.state.Username} onChange={this.handleChange}/>
           <input type="text" name="Email" placeholder="Email" value={this.state.Email} onChange={this.handleChange}/>
           <input type="password" name="Password" placeholder="Password" value={this.state.Password} onChange={this.handleChange}/>
+          <input type="text" name="Admin" placeholder="Admin" value={this.state.Admin} onChange={this.handleChange}/>
           <button type="submit">Submit</button>
         </form>
       </div>

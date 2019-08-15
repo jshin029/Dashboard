@@ -5,12 +5,17 @@ import Section2 from './Section2';
 import Section3 from './Section3';
 import Section4 from './Section4';
 import Section6 from './Section6';
+import ControlPanel from './ControlPanel';
 
 export const MyContext = React.createContext();
 
 class MyProvider extends React.Component {
-  state = {
-    name: "we made it",
+  constructor(props){
+    super(props);
+    this.state = {
+      Email: this.props.Email,
+      Perm: this.props.Perm
+    }
   }
   render () {
     return(
@@ -31,11 +36,10 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.props.Authenticated)
     return (
-      <MyProvider>
+      <MyProvider Email={this.props.Email} Perm={this.props.Perm}>
         <div className="main">
-          <Navbar/>
+          <Navbar {...this.props}/>
           <Section6/>
         </div>
       </MyProvider>

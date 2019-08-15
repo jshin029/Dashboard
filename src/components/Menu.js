@@ -15,7 +15,7 @@ class Menu extends Component {
       this.props.graphClick(selectedOption.label);
     }
     else if(this.props.section==='section6'){
-      this.props.setdeviceNumber(selectedOption.label)
+      this.props.setdeviceName(selectedOption.label)
     }
     else{
       this.props.location(selectedOption.label);

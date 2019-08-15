@@ -1,0 +1,52 @@
+.cpbox1 {
+  width: 98%;
+  background-color: white;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.cpbox2 {
+  width: 98%;
+  margin: auto;
+  padding-top: 20px;
+  display: flex;
+}
+
+.cpinnerbox1 {
+  width: 60%;
+}
+
+.cpinnerbox2 {
+  width: 40%;
+}
+.cpinner1 {
+  background-color: white;
+  border-radius: 6px 6px 0px 0px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.cpinner2 {
+  background-color: white;
+  border-radius: 0px 0px 6px 6px;
+  margin-top: 2px;
+  padding: 10px;
+}
+
+.cpinner3 {
+  background-color: white;
+  margin-left: 25px;
+  border-radius: 6px 6px 0px 0px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.cpinner4 {
+  background-color: white;
+  margin-left: 25px;
+  margin-top: 2px;
+  border-radius: 0px 0px 6px 6px;
+  padding: 10px;
+}

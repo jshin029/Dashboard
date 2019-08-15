@@ -20,7 +20,7 @@ class Section4 extends Component {
     this.state = {
       chartDevice: null,
       chartData: {},
-      deviceNumber: null,
+      deviceName: null,
       options2: [],
       chartType:'Bar',
       device: '',
@@ -35,7 +35,7 @@ class Section4 extends Component {
   }
 
   getDevice = () => {
-    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com/device', {
+    fetch( 'http://localhost:5000/device', {
       method: 'GET'
     })
       .then(response => response.json())
@@ -48,26 +48,23 @@ class Section4 extends Component {
       .catch(err => console.log(err))
   }
 
-  setdeviceNumber = (device) => {
+  setdeviceName = (device) => {
     this.setState({
-      deviceNumber: device
+      deviceName: device
     });
     if (this.state.Date){
-      console.log(this.state.Date)
+      console.log('made into date')
       this.getdeviceDataDate(this.state.Date, device)
-    }
-    else{
-      this.getdeviceData()
     }
   }
 
   getdeviceData = () => {
-    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com/deviceData', {
+    fetch( 'http://localhost:5000/deviceData', {
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify ({
-        deviceNumber: this.state.deviceNumber,
+        deviceName: this.state.deviceName,
         date: null
       }),
       method: 'POST'
@@ -80,12 +77,12 @@ class Section4 extends Component {
   }
 
   getdeviceDataDate = (convert, device) => {
-    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com/deviceData', {
+    fetch( 'http://localhost:5000/deviceData', {
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify ({
-        deviceNumber: device,
+        deviceName: device,
         date: convert
       }),
       method: 'POST'
@@ -128,8 +125,8 @@ class Section4 extends Component {
       var list = [];
       for (var i = 0; i < this.state.chartDevice.length; ++i){
         temp = {
-          'value': this.state.chartDevice[i].deviceId,
-          'label': this.state.chartDevice[i].deviceId
+          'value': this.state.chartDevice[i].deviceName,
+          'label': this.state.chartDevice[i].deviceName
         }
         list.push(temp)
         temp = {}
@@ -146,8 +143,10 @@ class Section4 extends Component {
       this.setState({
         Date: convert
       })
-      if (this.state.deviceNumber){
-        this.getdeviceDataDate(convert)
+      if (this.state.deviceName){
+        console.log(convert)
+        console.log(this.state.deviceName)
+        this.getdeviceDataDate(convert, this.state.deviceName)
       }
     }
   }
@@ -160,11 +159,6 @@ class Section4 extends Component {
   render() {
     return (
       <div className="block">
-        <MyContext.Consumer>
-          {(context) => (
-            <p>{context.state.name}</p>
-          )}
-        </MyContext.Consumer>
         <div className="outline">
           <h2 className="title">Insect Count (per hour)</h2>
         </div>
@@ -175,7 +169,7 @@ class Section4 extends Component {
               <p className="text">Select a device</p>
             </div>
             <div className="inner2">
-              <Menu setdeviceNumber={this.setdeviceNumber} options={this.state.options2} section={this.state.section}/>
+              <Menu setdeviceName={this.setdeviceName} options={this.state.options2} section={this.state.section}/>
             </div>
           </div>
           <div className="type">

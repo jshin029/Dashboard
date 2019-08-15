@@ -14,18 +14,36 @@ class Navbar extends Component {
   constructor(){
     super();
     this.state = {
+      redirectControl: false,
+      redirectDash: false
     }
   }
-  reroute = () => {
-    return <Redirect to={{pathname: '/protected'}} />
+
+  setRedirectControl = () => {
+  this.setState({
+    redirectControl: true
+    });
   }
+
+  setRedirectDash = () => {
+    this.setState({
+      redirectDash: true
+    });
+  }
+
   render(){
+    if (this.state.redirectControl) {
+      return <Redirect to="/controlPanel" />
+    }
+    else if (this.state.redirectDash) {
+      return <Redirect to="/protected" />
+    }
     return(
       <div className="Navbar">
         <div className="Wrapper">
           <img className="main-logo" src={logo}></img>
-          <button onclick={this.reroute} className="buttons">Dashboard</button>
-          <button className="buttons">Control Panel</button>
+          <button onClick={this.setRedirectDash} className="buttons">Dashboard</button>
+          <button onClick={this.setRedirectControl} className="buttons">Control Panel</button>
         </div>
       </div>
     );
