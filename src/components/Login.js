@@ -20,7 +20,7 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    fetch( 'http://dashboardcountdaily.us-east-2.elasticbeanstalk.com//login', {
+    fetch( 'http://localhost:5000/login', {
       headers: {
         'Content-Type': 'application/json'
       },
@@ -37,7 +37,7 @@ class Login extends Component {
           Password: ''
         })
         if (response['Email']){
-          this.props.validate('True', response['Email'], response['Permissions'])
+          this.props.validate('True', response['Email'], response['Permissions'], response['fName'])
           this.setState({
             redirectToReferrer: true
           });

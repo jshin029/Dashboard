@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
+import UserRow from './UserRow';
 import './css/ControlPanel.css';
 import { MyContext } from './Home';
 import Particle from 'particle-api-js';
+
 class ControlPanel extends Component {
   constructor(props){
     super(props)
     this.state = {
       Email: this.props.Email,
-      Perm: this.props.Perm
+      Users: {}
     }
   }
 
@@ -24,31 +26,14 @@ class ControlPanel extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response)
+        this.setState({
+          Users: response
+        })
       })
       .catch(err => console.log(err))
   }
 
-  loadDevices = () => {
-    fetch( 'http://localhost:5000/particle', {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      method: 'GET'
-    })
-      .then(response => response.json())
-      .then(response => {
-
-      })
-      .catch(err => console.log(err))
-  }
-
-  componentDidMount(){
-    this.onLoad()
-    this.loadDevices()
-  }
-
-  render(){
+  loadParticle = () => {
     var token = '2dd9a1bc69ea383c785584f1866c402c57192fbf'; // from result of particle.login
     var particle = new Particle();
     var devicesPr = particle.listDevices({ auth: token });
@@ -60,6 +45,27 @@ class ControlPanel extends Component {
         console.log('List devices call failed: ', err);
       }
     );
+  }
+
+  addRow = () => {
+    var temp = [];
+    if (this.state.Users.length > 0){
+      var temp2 = this.state.Users[0]
+      console.log(temp2['Email']);
+      for (var i = 0; i < this.state.Users.length; ++i){
+        temp.push(<UserRow key={i} Email={"hello"} Name={"hello"} Role={"hello"}/>)
+      }
+    }
+    return temp;
+  }
+
+  componentDidMount(){
+    this.onLoad()
+    this.loadParticle()
+  }
+
+  render(){
+    console.log(this.state.Users)
     return(
       <div>
         <Navbar/>
@@ -68,7 +74,14 @@ class ControlPanel extends Component {
           <div className="cpinnerbox1">
             <div className="cpinner1">Users</div>
             <div className="cpinner2">
-          </div>
+              <div className="userName">Username (Email)</div>
+              <div className="friendlyName">Friendly Name</div>
+              <div className="timeZone">Time Zone</div>
+              <div className="role">Role</div>
+              <div className="edit">Edit/Delete</div>
+              <div className="deviceAssociation">Device Association</div>
+            </div>
+            {this.addRow()}
         </div>
           <div className="cpinnerbox2">
             <div className="cpinner3">Additional Operations</div>

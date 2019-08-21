@@ -7,11 +7,11 @@ import adminRegistration from './components/adminRegistration';
 import './App.css';
 import { BrowserRouter as Router, Route, HashRouter, Redirect} from 'react-router-dom';
 
-function PrivateRoute ({component: Component, Authenticated, Email, Perm, ...rest}) {
+function PrivateRoute ({component: Component, Authenticated, Email, Name, Perm, ...rest}) {
   console.log(Authenticated)
   return (
     <Route {...rest} render={(props) => Authenticated === 'True'
-        ? <Component Email={Email} Perm={Perm}/>
+        ? <Component Email={Email} />
         : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
     />
   )
@@ -24,14 +24,16 @@ class App extends React.Component {
       Authenticated: 'False',
       Email: '',
       Perm: '',
+      Name: '',
       Redirect: false
     }
   }
 
-  validate = (condition, userEmail, userPerm) => {
+  validate = (condition, userEmail, userPerm, userName) => {
     this.setState({
       Authenticated: condition,
       Email: userEmail,
+      Name: userName,
       Perm: userPerm
     });
   }
@@ -45,7 +47,7 @@ render () {
           <Route path="/register" component={Registration} />
           <Route path="/adminRegister" component={adminRegistration} />
           <Route path="/controlPanel" render={() => <ControlPanel Email={this.state.Email} Perm={this.state.Perm} />}/>
-          <PrivateRoute path='/protected' Authenticated={this.state.Authenticated} Email={this.state.Email} Perm={this.state.Perm} component={Home} />
+          <PrivateRoute path='/protected' Authenticated={this.state.Authenticated} Email={this.state.Email} component={Home} />
         </div>
       </HashRouter>
     )

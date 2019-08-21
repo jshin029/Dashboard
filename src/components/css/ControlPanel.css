@@ -1,4 +1,5 @@
 .cpbox1 {
+  color: #808080;
   width: 98%;
   background-color: white;
   margin: auto;
@@ -15,13 +16,14 @@
 }
 
 .cpinnerbox1 {
-  width: 60%;
+  width: 80%;
 }
 
 .cpinnerbox2 {
-  width: 40%;
+  width: 20%;
 }
 .cpinner1 {
+  color: #808080;
   background-color: white;
   border-radius: 6px 6px 0px 0px;
   padding: 10px;
@@ -30,9 +32,9 @@
 
 .cpinner2 {
   background-color: white;
-  border-radius: 0px 0px 6px 6px;
   margin-top: 2px;
   padding: 10px;
+  display: flex;
 }
 
 .cpinner3 {
@@ -49,4 +51,76 @@
   margin-top: 2px;
   border-radius: 0px 0px 6px 6px;
   padding: 10px;
+}
+
+.userName {
+  color: #808080;
+  font-weight: 700;
+  width: 20%;
+}
+
+.friendlyName {
+  color: #808080;
+  font-weight: 700;
+  width: 20%;
+}
+
+.timeZone {
+  color: #808080;
+  font-weight: 700;
+  width: 25%;
+}
+
+.role{
+  color: #808080;
+  font-weight: 700;
+  width: 10%;
+}
+
+.edit{
+  color: #808080;
+  font-weight: 700;
+  width: 10%;
+}
+
+.deviceAssociation {
+  color: #808080;
+  font-weight: 700;
+  width: 15%;
+}
+
+.userFields {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+}
+
+.w1 {
+  width: 20%;
+  color: #808080;
+}
+
+.w2 {
+  width: 20%;
+  color: #808080;
+}
+
+.w3 {
+  width: 25%;
+  color: #808080;
+}
+
+.w4 {
+  width: 10%;
+  color: #808080;
+}
+
+.w5 {
+  width: 10%;
+  color: #808080;
+}
+
+.w6 {
+  width: 15%;
+  color: #808080;
 }

@@ -14,7 +14,6 @@ class MyProvider extends React.Component {
     super(props);
     this.state = {
       Email: this.props.Email,
-      Perm: this.props.Perm
     }
   }
   render () {
@@ -37,7 +36,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <MyProvider Email={this.props.Email} Perm={this.props.Perm}>
+      <MyProvider Email={this.props.Email} Name={this.props.Name} Perm={this.props.Perm}>
         <div className="main">
           <Navbar {...this.props}/>
           <Section6/>
