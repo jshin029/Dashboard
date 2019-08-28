@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import jwt from 'jsonwebtoken';
+import { userLoginFetch } from '../redux/actions';
+import { connect } from 'react-redux';
 import './css/Login.css';
 
 
@@ -10,44 +12,26 @@ class Login extends Component {
     this.state = {
       Email: '',
       Password: '',
-      redirectToReferrer: false
     }
   }
 
-  handleChange = (e) => {
-    this.setState({[e.target.name]: e.target.value});
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    fetch( 'http://localhost:5000/login', {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify ({
-        Email: this.state.Email,
-        Password: this.state.Password
-      }),
-      method: 'POST'
-    })
-      .then(response => response.json())
-      .then(response => {
-        this.setState({
-          Email: '',
-          Password: ''
-        })
-        if (response['Email']){
-          this.props.validate('True', response['Email'], response['Permissions'], response['fName'])
-          this.setState({
-            redirectToReferrer: true
-          });
-        }
-      })
-      .catch(err => console.log(err))
-  }
+  handleSubmit = (event) => {
+   event.preventDefault()
+   this.props.userLoginFetch(this.state)
+   this.setState({
+     Email: '',
+     Password: '',
+   })
+ }
 
   render(){
-    if (this.state.redirectToReferrer === true) {
+    if (this.props.currentUser.permissions === 'Admin' || this.props.currentUser.permissions === 'User'){
       return <Redirect to={{pathname: '/protected'}} />
     }
 
@@ -66,4 +50,12 @@ class Login extends Component {
   }
 };
 
-export default Login;
+const mapStateToProps = state => ({
+  currentUser: state.currentUser
+})
+
+const mapDispatchToProps = dispatch => ({
+  userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

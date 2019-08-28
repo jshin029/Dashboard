@@ -48,12 +48,11 @@ class ControlPanel extends Component {
   }
 
   addRow = () => {
-    var temp = [];
+    let temp = [];
     if (this.state.Users.length > 0){
-      var temp2 = this.state.Users[0]
-      console.log(temp2['Email']);
-      for (var i = 0; i < this.state.Users.length; ++i){
-        temp.push(<UserRow key={i} Email={"hello"} Name={"hello"} Role={"hello"}/>)
+      for (let i = 0; i < this.state.Users.length; ++i){
+        let tempUser = this.state.Users[i]
+        temp.push(<UserRow key={i} Email={tempUser['Email']} Name={tempUser['fName']} Role={tempUser['Perm']} Username={tempUser['Username']}/>)
       }
     }
     return temp;

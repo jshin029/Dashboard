@@ -4,6 +4,8 @@ import Menu from './Menu';
 import Dropdown from './Dropdown';
 import './css/Navbar.css';
 import logo from '../assets/farmsense_logo.png'
+import {connect} from 'react-redux';
+import {logoutUser} from '../redux/actions';
 
 const options = [
   {value: 'Devices', label: 'Devices'},
@@ -31,6 +33,11 @@ class Navbar extends Component {
     });
   }
 
+  handleClick = () => {
+    localStorage.removeItem("token")
+    this.props.logoutUser()
+  }
+
   render(){
     if (this.state.redirectControl) {
       return <Redirect to="/controlPanel" />
@@ -44,10 +51,15 @@ class Navbar extends Component {
           <img className="main-logo" src={logo}></img>
           <button className="buttons" onClick={this.setRedirectDash}>Dashboard</button>
           <button className="buttons" onClick={this.setRedirectControl}>Control Panel</button>
+          <button className="buttons" onClick={this.handleClick}>Logout</button>
         </div>
       </div>
     );
   }
 }
 
-export default Navbar;
+const mapDispatchToProps = dispatch => ({
+  logoutUser: () => dispatch(logoutUser())
+})
+
+export default connect(null, mapDispatchToProps)(Navbar);

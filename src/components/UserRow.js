@@ -5,6 +5,7 @@ class UserRow extends Component {
   constructor(props){
     super(props)
     this.state ={
+      Username: this.props.Username,
       Email: this.props.Email,
       Name: this.props.Name,
       timeZone: "(UTC-08:00) Pacific Time (US & Canada)",
@@ -15,12 +16,16 @@ class UserRow extends Component {
   render(){
     return(
       <div className="userFields">
-        <p className="w1"> hello </p>
-        <p className="w2"> hello </p>
-        <p className="w3"> hello </p>
-        <p className="w4"> hello </p>
-        <p className="w5"> hello </p>
-        <p className="w6"> hello </p>
+        <div className="w1">{this.state.Username}</div>
+        <div className="w2">{this.state.Name}</div>
+        <div className="w3">{this.state.timeZone}</div>
+        <div className="w4">{this.state.Role}</div>
+        <div className="w5">
+          <button>edit</button>
+        </div>
+        <div className="w6">
+          <button>mannage</button>
+        </div>
 
       </div>
     )
