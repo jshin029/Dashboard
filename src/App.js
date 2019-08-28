@@ -2,7 +2,8 @@ import React from 'react';
 import Home from './components/Home';
 import Login from './components/Login';
 import Registration from './components/Registration';
-import ControlPanel from './components/ControlPanel';
+import Users from './components/Users';
+import ManageDevices from './components/ManageDevices';
 import adminRegistration from './components/adminRegistration';
 import './App.css';
 import { connect } from 'react-redux';
@@ -32,7 +33,8 @@ render () {
             <Route path="/login" render={() => <Login validate={this.validate} />} />
             <Route path="/register" component={Registration} />
             <Route path="/adminRegister" component={adminRegistration} />
-            <Route path="/controlPanel" component={ControlPanel}/>
+            <Route path="/users" component={Users}/>
+            <Route path="/manageDevices" component={ManageDevices} />
             <PrivateRoute path='/protected' component={Home} permissions={this.props.currentUser.permissions ? this.props.currentUser.permissions: ''}/>
           </Switch>
         </HashRouter>

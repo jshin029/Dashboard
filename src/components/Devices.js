@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import UserRow from './UserRow';
-import './css/ControlPanel.css';
+import './css/Users.css';
 import { MyContext } from './Home';
 import Particle from 'particle-api-js';
 
-class ControlPanel extends Component {
+class Users extends Component {
   constructor(props){
     super(props)
     this.state = {
-      Email: this.props.Email,
       Users: {}
     }
   }
@@ -97,4 +96,4 @@ class ControlPanel extends Component {
 
 }
 
-export default ControlPanel;
+export default Users;

@@ -16,14 +16,14 @@ class Navbar extends Component {
   constructor(){
     super();
     this.state = {
-      redirectControl: false,
+      redirectUsers: false,
       redirectDash: false
     }
   }
 
-  setRedirectControl = () => {
+  setRedirectUsers = () => {
   this.setState({
-    redirectControl: true
+    redirectUsers: true
     });
   }
 
@@ -39,18 +39,19 @@ class Navbar extends Component {
   }
 
   render(){
-    if (this.state.redirectControl) {
-      return <Redirect to="/controlPanel" />
+    if (this.state.redirectUsers) {
+      return <Redirect push to="/users" />
     }
     else if (this.state.redirectDash) {
-      return <Redirect to="/protected" />
+      return <Redirect push to="/protected" />
     }
     return(
       <div className="Navbar">
         <div className="Wrapper">
           <img className="main-logo" src={logo}></img>
           <button className="buttons" onClick={this.setRedirectDash}>Dashboard</button>
-          <button className="buttons" onClick={this.setRedirectControl}>Control Panel</button>
+          <button className="buttons" onClick={this.setRedirectDevices}>Devices</button>
+          <button className="buttons" onClick={this.setRedirectUsers}>Users</button>
           <button className="buttons" onClick={this.handleClick}>Logout</button>
         </div>
       </div>

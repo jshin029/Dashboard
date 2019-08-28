@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './css/ControlPanel.css';
+import {Redirect} from 'react-router-dom';
+import './css/Users.css';
 
 class UserRow extends Component {
   constructor(props){
@@ -9,11 +10,27 @@ class UserRow extends Component {
       Email: this.props.Email,
       Name: this.props.Name,
       timeZone: "(UTC-08:00) Pacific Time (US & Canada)",
-      Role: this.props.Role
+      Role: this.props.Role,
+      redirectManageDevice: false
     }
   }
 
+  setRedirectManageDevice = () => {
+    this.setState({
+      redirectManageDevice: true
+    })
+  }
+
+
   render(){
+    if (this.state.redirectManageDevice){
+      return <Redirect to={{
+          pathname: '/manageDevices',
+          state: { Email: this.state.Email }
+      }}
+      />
+    }
+
     return(
       <div className="userFields">
         <div className="w1">{this.state.Username}</div>
@@ -24,7 +41,7 @@ class UserRow extends Component {
           <button>edit</button>
         </div>
         <div className="w6">
-          <button>mannage</button>
+          <button onClick={this.setRedirectManageDevice}>manage</button>
         </div>
 
       </div>

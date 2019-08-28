@@ -5,7 +5,6 @@
   margin: auto;
   margin-top: 20px;
   border-radius: 6px;
-  padding: 6px;
 }
 
 .cpbox2 {
@@ -123,4 +122,120 @@
 .w6 {
   width: 15%;
   color: #808080;
+}
+
+.wrench {
+  height: 24px;
+}
+
+.firstHeader {
+  padding: 5px;
+}
+
+.mgaMain {
+  width: 98%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.mgaHeader1 {
+  color: #808080;
+  background-color: white;
+  border-radius: 6px 6px 0px 0px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.mgaHeader2 {
+  color: #808080;
+  background-color: white;
+  padding: 10px;
+  font-size: 20px;
+  margin-top: 2px;
+  display: flex;
+}
+
+.mgaHeader3 {
+  background-color: white;
+  margin-top: 2px;
+}
+
+.mgaUsername {
+  width: 20%;
+}
+
+.mga3sub1 {
+  display: flex;
+}
+
+.mgaTitle {
+  color: #808080;
+  padding: 15px 15px 15px 10px;
+  font-size: 20px;
+  width: 20%;
+}
+
+.addButton {
+  border: none;
+  border-radius: 4px 0px 0px 4px;
+  color: white;
+  background-color: #58C9F3;
+  padding: 12px;
+}
+
+.editButton {
+  border: none;
+  color: white;
+  background-color: #98D6EA;
+  padding: 12px;
+}
+
+.deleteButton {
+  border: none;
+  color: white;
+  background-color: #E8928D;
+  padding: 12px;
+}
+
+.refreshButton {
+  border: none;
+  border-radius: 0px 4px 4px 0px;
+  color: white;
+  background-color: #42CAC0;
+  padding: 12px;
+}
+
+.mga3sub2 {
+  height: 90%;
+  padding: 10px 10px 10px 0px;
+  display: flex;
+}
+
+.mga3sub3 {
+  padding: 10px;
+  display: flex;
+}
+
+.device {
+  font-size: 13px;
+  font-weight: 500;
+  width: 14%;
+}
+
+.fill {
+  font-size: 13px;
+  font-weight: 500;
+  width: 6%;
+}
+
+.fill2 {
+  font-size: 13px;
+  font-weight: 500;
+  width: 10%;
+}
+
+.fill3 {
+  font-size: 13px;
+  font-weight: 500;
+  width: 7%;
 }
