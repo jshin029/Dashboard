@@ -6,8 +6,6 @@ import { MyContext } from './Home';
 import { connect } from 'react-redux';
 import Particle from 'particle-api-js';
 import wrench from '../assets/wrench.png'
-import Popup from "reactjs-popup";
-
 
 class Users extends Component {
   constructor(props){

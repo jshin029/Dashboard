@@ -31,8 +31,10 @@ class Login extends Component {
  }
 
   render(){
-    if (this.props.currentUser.permissions === 'Admin' || this.props.currentUser.permissions === 'User'){
-      return <Redirect to={{pathname: '/protected'}} />
+    if (this.props.currentUser){
+      if (this.props.currentUser.permissions === 'Admin' || this.props.currentUser.permissions === 'User'){
+        return <Redirect to={{pathname: '/protected'}} />
+      }
     }
 
     return(

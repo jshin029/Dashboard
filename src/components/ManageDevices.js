@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import wrench from '../assets/wrench.png';
-import Popup from "reactjs-popup";
+import ModalComponent from './CustomModal';
+
 
 
 class ManageDevices extends Component {
@@ -26,14 +27,11 @@ class ManageDevices extends Component {
             <div className="mgaUsername">Username</div>
             <div>{this.state.Email}</div>
           </div>
-          <Popup trigger={<button> Trigger</button>} position="right center">
-    <div>Popup content here !!</div>
-  </Popup>
           <div className="mgaHeader3">
             <div className="mga3sub1">
               <div className="mgaTitle">Manage the association</div>
               <div className="mga3sub2">
-                <button className="addButton">Add</button>
+                <ModalComponent/>
                 <button className="editButton">Edit</button>
                 <button className="deleteButton">Delete</button>
                 <button className="refreshButton">Refresh</button>

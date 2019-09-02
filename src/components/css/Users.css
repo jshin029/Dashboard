@@ -1,3 +1,7 @@
+button:focus {outline:0;}
+button{
+ outline: none !important;
+}
 .cpbox1 {
   color: #808080;
   width: 98%;
@@ -77,9 +81,10 @@
 }
 
 .edit{
+  -webkit-appearance: none;
   color: #808080;
   font-weight: 700;
-  width: 10%;
+  height: 10px;
 }
 
 .deviceAssociation {
@@ -180,21 +185,24 @@
   border-radius: 4px 0px 0px 4px;
   color: white;
   background-color: #58C9F3;
-  padding: 12px;
+  padding: 10px;
+  font-size: 14px;
 }
 
 .editButton {
   border: none;
   color: white;
   background-color: #98D6EA;
-  padding: 12px;
+  padding: 8px;
+  font-size: 14px;
 }
 
 .deleteButton {
   border: none;
   color: white;
   background-color: #E8928D;
-  padding: 12px;
+  padding: 8px;
+  font-size: 14px;
 }
 
 .refreshButton {
@@ -202,11 +210,11 @@
   border-radius: 0px 4px 4px 0px;
   color: white;
   background-color: #42CAC0;
-  padding: 12px;
+  padding: 8px;
+  font-size: 14px;
 }
 
 .mga3sub2 {
-  height: 90%;
   padding: 10px 10px 10px 0px;
   display: flex;
 }
@@ -237,5 +245,17 @@
 .fill3 {
   font-size: 13px;
   font-weight: 500;
-  width: 7%;
+  width: 8%;
+}
+
+.popupDiv {
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+.addRecord {
+  border-radius: 4px 4px 0px 0px;
+  background-color: green;
 }
