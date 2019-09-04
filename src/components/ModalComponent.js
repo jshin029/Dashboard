@@ -1,12 +1,18 @@
 import React, { useState, Component } from 'react';
 import { Modal } from 'react-bootstrap';
-import Menu from './Menu';
+import MultiMenu from './MultiMenu';
+import { connect } from 'react-redux';
+
 
 const options = [
   {value: 'Yes', label: 'Yes'},
   {value: 'No', label: 'No'},
 ]
 
+const options2 = [
+  {value: 'Yes', label: 'Yes'},
+  {value: 'No', label: 'No'},
+]
 
 class ModalComponent extends Component {
   constructor(props){
@@ -49,8 +55,8 @@ class ModalComponent extends Component {
       [event.target.name]: event.target.value
     });
   }
+
   render(){
-    console.log(this.state.extraData);
     return(
       <div>
         <button className="addButton" variant="primary" onClick={this.handleShow}>Add</button>
@@ -64,43 +70,45 @@ class ModalComponent extends Component {
                 <div>
                   <div className="flex">
                     <div className="nextForm">Device</div>
-                    <input className="input" type="text" name="Device" placeholder="Device" value={this.state.Device} onChange={this.handleChange}/>
+                    <div style={{width: '90%'}}>
+                      <MultiMenu options={this.props.deviceOptions}/>
+                    </div>
                   </div>
                   <div className="flex2">
                     <div className="nextForm">Start from (UTC)</div>
-                    <input className="input" type="text" name="StartfromUTC" placeholder="mm/dd/yyyy" value={this.state.StartfromUTC} onChange={this.handleChange}/>
+                    <input style={{margin: '0px'}} className="input" type="text" name="StartfromUTC" placeholder="mm/dd/yyyy" value={this.state.StartfromUTC} onChange={this.handleChange}/>
                   </div>
                   <div className="flex2">
                     <div className="nextForm">End at (UTC)</div>
-                    <input className="input" type="text" name="EndatUTC" placeholder="mm/dd/yyyy" value={this.state.EndatUTC} onChange={this.handleChange}/>
+                    <input style={{margin: '0px'}} className="input" type="text" name="EndatUTC" placeholder="mm/dd/yyyy" value={this.state.EndatUTC} onChange={this.handleChange}/>
                   </div>
                   <div className="flex2">
                     <div className="nextForm">Location</div>
-                    <input className="input" type="text" name="Location" placeholder="Location (case-sensitive)" value={this.state.Location} onChange={this.handleChange}/>
+                    <input style={{margin: '0px'}} className="input" type="text" name="Location" placeholder="Location (case-sensitive)" value={this.state.Location} onChange={this.handleChange}/>
                   </div>
                   <div className="flex2">
                     <div className="nextForm">Latitude</div>
-                    <input className="input" type="text" name="Latitude" placeholder="Latitude (leave blank for removing latitude)" value={this.state.Latitude} onChange={this.handleChange}/>
+                    <input style={{margin: '0px'}} className="input" type="text" name="Latitude" placeholder="Latitude (leave blank for removing latitude)" value={this.state.Latitude} onChange={this.handleChange}/>
                   </div>
                   <div className="flex2">
                     <div className="nextForm">Longitude</div>
-                    <input className="input" type="text" name="Longitude" placeholder="Longitude (leave blank for removing longitude)" value={this.state.Longitude} onChange={this.handleChange}/>
+                    <input style={{margin: '0px'}} className="input" type="text" name="Longitude" placeholder="Longitude (leave blank for removing longitude)" value={this.state.Longitude} onChange={this.handleChange}/>
                   </div>
                   <div className="flex2">
                     <div className="nextForm">Insect type</div>
-                    <input className="input" type="text" name="InsectType" placeholder="Insect type (case-sensitive)" value={this.state.InsectType} onChange={this.handleChange}/>
+                    <input style={{margin: '0px'}} className="input" type="text" name="InsectType" placeholder="Insect type (case-sensitive)" value={this.state.InsectType} onChange={this.handleChange}/>
                   </div>
                   <div className="flex2">
                     <div className="nextForm">Base value (°C)</div>
-                    <input className="input" type="text" name="BaseValue" placeholder="Used in degree-day computation" value={this.state.BaseValue} onChange={this.handleChange}/>
+                    <input style={{margin: '0px'}} className="input" type="text" name="BaseValue" placeholder="Used in degree-day computation" value={this.state.BaseValue} onChange={this.handleChange}/>
                   </div>
                   <div className="flex2">
                     <div className="nextForm">Lower Threshold (°C)</div>
-                    <input className="input" type="text" name="LowerThreshold" placeholder="Used in degree-day computation" value={this.state.LowerThreshold} onChange={this.handleChange}/>
+                    <input style={{margin: '0px'}} className="input" type="text" name="LowerThreshold" placeholder="Used in degree-day computation" value={this.state.LowerThreshold} onChange={this.handleChange}/>
                   </div>
                   <div className="flex2">
                     <div className="nextForm">Upper Threshold (°C)</div>
-                    <input className="input" type="text" name="UpperThreshold" placeholder="Used in degree-day computation" value={this.state.UpperThreshold} onChange={this.handleChange}/>
+                    <input style={{margin: '0px'}} className="input" type="text" name="UpperThreshold" placeholder="Used in degree-day computation" value={this.state.UpperThreshold} onChange={this.handleChange}/>
                   </div>
                   <div className="flex2">
                     <div className="nextForm">Require extra process to data?</div>
@@ -131,4 +139,5 @@ class ModalComponent extends Component {
   }
 }
 
+//export default connect(mapStateToProps, null)(ModalComponent);
 export default ModalComponent;

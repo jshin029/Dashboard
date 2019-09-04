@@ -264,14 +264,11 @@ button{
   display: flex;
 }
 
-.input {
-margin: 0px;
-}
-
 .nextForm {
   font-size: 12px;
   padding: 4px;
   width: 21%;
+  padding-bottom: 4px;
 }
 
 .modalSizing {
@@ -309,10 +306,6 @@ select:focus {
   width: 90%;
   color: #757575;
   font-size: 14px;
-}
-
-*, *::before, *::after {
-    box-sizing: content-box !important;
 }
 
 .input {

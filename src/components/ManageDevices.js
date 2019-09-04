@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import wrench from '../assets/wrench.png';
-import ModalComponent from './CustomModal';
+import ModalComponent from './ModalComponent';
 
 
 
@@ -9,12 +9,48 @@ class ManageDevices extends Component {
   constructor(props){
     super(props)
     this.state ={
-      //Email: this.props.location.state.Email
-      Email: "paul@gmail.com"
-
+      Email: this.props.location.state.Email,
+      deviceOptions: null
     }
   }
+  userDeviceFetch = () => {
+    fetch("http://localhost:5000/userDevices", {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        Email: this.props.location.state.Email
+      }),
+      method: "POST",
+    })
+      .then(resp => resp.json())
+      .then(resp => {
+        if (resp.message) {
+          //error handling
+        }
+        else {
+          let temp = [];
+          let subdict = {};
+          for (let i = 0; i < resp.length; ++i){
+            subdict={
+              'value': resp[i].DeviceName,
+              'label': resp[i].DeviceName
+            }
+            temp.push(subdict)
+          }
+          this.setState({
+            deviceOptions: temp
+          })
+        }
+      })
+      .catch(err => console.log(err))
+  }
+
+  componentDidMount(){
+    this.userDeviceFetch();
+  }
   render(){
+    console.log(this.state.deviceOptions)
     return(
       <div>
         <Navbar />
@@ -31,7 +67,7 @@ class ManageDevices extends Component {
             <div className="mga3sub1">
               <div className="mgaTitle">Manage the association</div>
               <div className="mga3sub2">
-                <ModalComponent/>
+                <ModalComponent deviceOptions={this.state.deviceOptions}/>
                 <button className="editButton">Edit</button>
                 <button className="deleteButton">Delete</button>
                 <button className="refreshButton">Refresh</button>
