@@ -259,3 +259,62 @@ button{
   border-radius: 4px 4px 0px 0px;
   background-color: green;
 }
+
+.flex {
+  display: flex;
+}
+
+.input {
+margin: 0px;
+}
+
+.nextForm {
+  font-size: 12px;
+  padding: 4px;
+  width: 21%;
+}
+
+.modalSizing {
+  width: 42vw !important;
+}
+
+.modalHeader {
+  background-color: #00A8B3;
+  border: none;
+}
+
+.modalTitle {
+  font-weight: 300 !important;
+  color: white;
+}
+
+.flex2 {
+  display: flex;
+  margin-top: 15px;
+  height: 10%;
+}
+
+
+select:focus {
+  outline: none;
+}
+
+.toggleBox {
+  border-width: 2px;
+  background-color: white;
+  border-color: #F0F0F0;
+  border-style: solid;
+  border-radius: 5px;
+  box-shadow: none;
+  width: 90%;
+  color: #757575;
+  font-size: 14px;
+}
+
+*, *::before, *::after {
+    box-sizing: content-box !important;
+}
+
+.input {
+  font-size: 14px;
+}
