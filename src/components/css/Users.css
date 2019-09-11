@@ -311,3 +311,16 @@ select:focus {
 .input {
   font-size: 14px;
 }
+
+.ModalButtonClose, .ModalButtonAdd {
+  border: none;
+  color: white;
+  background-color: #42CAC0;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.ModalButtonClose {
+  background-color: #C8C8C8;	
+}

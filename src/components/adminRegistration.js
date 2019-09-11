@@ -4,7 +4,6 @@ class registration extends Component {
   constructor(props){
     super(props)
     this.state = {
-      Username: '',
       fName: '',
       lName: '',
       Email: '',
@@ -23,7 +22,6 @@ class registration extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify ({
-        Username: this.state.Username,
         fName: this.state.fName,
         lName: this.state.lName,
         Email: this.state.Email,
@@ -37,7 +35,6 @@ class registration extends Component {
       })
       .catch(err => console.log(err))
       this.setState({
-        Username: '',
         fName: '',
         lName: '',
         Password: '',
@@ -49,7 +46,6 @@ class registration extends Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="Username" placeholder="Username" value={this.state.Username} onChange={this.handleChange}/>
           <input type="text" name="fName" placeholder="First name" value={this.state.fName} onChange={this.handleChange}/>
           <input type="text" name="lName" placeholder="Last name" value={this.state.lName} onChange={this.handleChange}/>
           <input type="text" name="Email" placeholder="Email" value={this.state.Email} onChange={this.handleChange}/>

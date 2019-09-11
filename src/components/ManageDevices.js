@@ -2,17 +2,30 @@ import React, { Component } from 'react';
 import Navbar from './Navbar';
 import wrench from '../assets/wrench.png';
 import ModalComponent from './ModalComponent';
-
+import DeviceRow from './DeviceRow';
 
 
 class ManageDevices extends Component {
   constructor(props){
     super(props)
-    this.state ={
+    this.state = {
       Email: this.props.location.state.Email,
-      deviceOptions: null
+      Device: [],
+      StartfromUTC: '',
+      EndatUTC: '',
+      Location: '',
+      Latitude: '',
+      Longitude: '',
+      InsectType: '',
+      BaseValue: '',
+      LowerThreshold: '',
+      UpperThreshold: '',
+      extraData: true,
+      dataVisibility: true,
+      deviceRows: [],
     }
   }
+
   userDeviceFetch = () => {
     fetch("http://localhost:5000/userDevices", {
       headers: {
@@ -46,17 +59,76 @@ class ManageDevices extends Component {
       .catch(err => console.log(err))
   }
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  addRow = () => {
+    fetch("http://localhost:5000/addDeviceRows", {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        'data': this.state
+      }),
+      method: "POST",
+    })
+      .then(resp => resp.json())
+      .then(resp => {
+        if (resp.message) {
+        } else {
+          console.log(resp.Success)
+        }
+      })
+      .catch(err => console.log(err))
+  }
+
+  updateDevice = (newDevice) => {
+    let temp = [];
+    for (let i = 0; i < newDevice.length; ++i){
+      temp.push(newDevice[i].value);
+    }
+    this.setState({
+      Device: temp
+    })
+  }
+
+  deviceRowFetch = () => {
+    console.log("in deviceRowFetch")
+    fetch("http://localhost:5000/deviceRows", {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        'Email': this.props.location.state.Email
+      }),
+      method: "POST",
+    })
+      .then(resp => resp.json())
+      .then(resp => {
+        if (resp.message) {
+        } else {
+          console.log(resp.Success)
+        }
+      })
+      .catch(err => console.log(err))
+  }
+
   componentDidMount(){
     this.userDeviceFetch();
+    this.deviceRowFetch();
   }
   render(){
-    console.log(this.state.deviceOptions)
+    console.log(this.state.Device)
     return(
       <div>
         <Navbar />
         <div className="cpbox1">
           <div className="firstHeader">Control Panel / Users / Manage Device Associations</div>
         </div>
+        <DeviceRow ManageStates={this.state}/>
         <div className="mgaMain">
           <div className="mgaHeader1">Manage Device Association</div>
           <div className="mgaHeader2">
@@ -67,7 +139,7 @@ class ManageDevices extends Component {
             <div className="mga3sub1">
               <div className="mgaTitle">Manage the association</div>
               <div className="mga3sub2">
-                <ModalComponent deviceOptions={this.state.deviceOptions}/>
+                <ModalComponent updateDevice={this.updateDevice} handleChange={this.state.handleChange} deviceOptions={this.state.deviceOptions} handleChange={this.handleChange} addRow={this.addRow}/>
                 <button className="editButton">Edit</button>
                 <button className="deleteButton">Delete</button>
                 <button className="refreshButton">Refresh</button>
@@ -87,6 +159,9 @@ class ManageDevices extends Component {
                 <div className="fill3">Upper Threshold (C)</div>
                 <div className="fill2">Require extra process to data?</div>
                 <div className="fill3">Data visible to user?</div>
+              </div>
+              <div>
+                {this.state.deviceRows.map(device => <div>{ device }</div>)}
               </div>
             </div>
           </div>

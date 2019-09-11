@@ -11,17 +11,18 @@ class Users extends Component {
   constructor(props){
     super(props)
     this.state = {
-      Users: {}
+      Users: {},
+      Email: ''
     }
   }
 
-  onLoad = () => {
+  fetchUserList = () => {
     fetch( 'http://localhost:5000/userList', {
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify ({
-        Username: this.props.currentUser.username,
+        Email: this.props.currentUser.Email,
       }),
       method: 'POST'
     })
@@ -39,14 +40,14 @@ class Users extends Component {
     if (this.state.Users.length > 0){
       for (let i = 0; i < this.state.Users.length; ++i){
         let tempUser = this.state.Users[i]
-        temp.push(<UserRow key={i} Email={tempUser['Email']} Name={tempUser['fName']} Role={tempUser['Perm']} Username={tempUser['Username']}/>)
+        temp.push(<UserRow key={i} Email={tempUser['Email']} Name={tempUser['fName']} Role={tempUser['Perm']}/>)
       }
     }
     return temp;
   }
 
   componentDidMount(){
-    this.onLoad()
+    this.fetchUserList();
   }
 
   render(){

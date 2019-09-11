@@ -41,6 +41,7 @@ class MultiMenu extends Component {
   }
 
   handleChange = (selectedOption) => {
+    this.props.updateDevice(selectedOption);
     this.setState({selectedOption});
   }
 
