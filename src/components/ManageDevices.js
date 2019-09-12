@@ -96,7 +96,6 @@ class ManageDevices extends Component {
   }
 
   deviceRowFetch = () => {
-    console.log("in deviceRowFetch")
     fetch("http://localhost:5000/deviceRows", {
       headers: {
         'Content-Type': 'application/json',
@@ -110,7 +109,13 @@ class ManageDevices extends Component {
       .then(resp => {
         if (resp.message) {
         } else {
-          console.log(resp.Success)
+          let temp = []
+          for (let i = 0; i < resp.length; ++i){
+            temp.push(<DeviceRow ManageStates={resp[i]} />)
+          }
+          this.setState({
+            deviceRows: temp
+          })
         }
       })
       .catch(err => console.log(err))
@@ -121,7 +126,7 @@ class ManageDevices extends Component {
     this.deviceRowFetch();
   }
   render(){
-    console.log(this.state.Device)
+    console.log(this.state.deviceRows)
     return(
       <div>
         <Navbar />
@@ -151,14 +156,7 @@ class ManageDevices extends Component {
                 <div className="fill">Start from (UTC)</div>
                 <div className="fill">End at (UTC)</div>
                 <div className="fill3">Location</div>
-                <div className="fill3">Latitude</div>
-                <div className="fill3">Longitude</div>
                 <div className="fill3">Insect Type</div>
-                <div className="fill">Base Value (C)</div>
-                <div className="fill3">Lower Threshold (C)</div>
-                <div className="fill3">Upper Threshold (C)</div>
-                <div className="fill2">Require extra process to data?</div>
-                <div className="fill3">Data visible to user?</div>
               </div>
               <div>
                 {this.state.deviceRows.map(device => <div>{ device }</div>)}

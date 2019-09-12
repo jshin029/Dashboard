@@ -9,6 +9,7 @@ button{
   margin: auto;
   margin-top: 20px;
   border-radius: 6px;
+  padding: 10px;
 }
 
 .cpbox2 {
@@ -16,6 +17,10 @@ button{
   margin: auto;
   padding-top: 20px;
   display: flex;
+}
+
+.cpBorder{
+  border-bottom: 2px solid #BEBEBE;
 }
 
 .cpinnerbox1 {
@@ -322,5 +327,5 @@ select:focus {
 }
 
 .ModalButtonClose {
-  background-color: #C8C8C8;	
+  background-color: #C8C8C8;
 }

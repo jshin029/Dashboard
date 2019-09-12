@@ -1,0 +1,17 @@
+<div className="fill">Start from (UTC)</div>
+<div className="fill">End at (UTC)</div>
+<div className="fill3">Location</div>
+<div className="fill3">Latitude</div>
+<div className="fill3">Longitude</div>
+<div className="fill3">Insect Type</div>
+<div className="fill">Base Value (C)</div>
+<div className="fill3">Lower Threshold (C)</div>
+<div className="fill3">Upper Threshold (C)</div>
+<div className="fill2">Require extra process to data?</div>
+<div className="fill3">Data visible to user?</div>
+
+
+
+<div>
+  <Navbar />
+</div>

@@ -1,0 +1,30 @@
+.particleRow {
+  background-color: white;
+  display: flex;
+  padding: 10px;
+  border-bottom: 2px solid #D8D8D8;
+}
+
+.particleDevice {
+  width: 16.5vw;
+}
+
+.particleType {
+  width: 5vw;
+}
+
+.particleName {
+  width: 12vw;
+}
+
+.particleLeased{
+  width: 26vw;
+}
+
+.particleSIM {
+  width: 12vw;
+}
+
+.particleDelete{
+  padding-left: 1vw;
+}

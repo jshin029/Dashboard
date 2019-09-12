@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Registration from './components/Registration';
 import Users from './components/Users';
 import ManageDevices from './components/ManageDevices';
+import Device from './components/Device';
 import adminRegistration from './components/adminRegistration';
 import './App.css';
 import { connect } from 'react-redux';
@@ -35,6 +36,7 @@ render () {
             <Route path="/adminRegister" component={adminRegistration} />
             <Route path="/users" component={Users}/>
             <Route path="/manageDevices" component={ManageDevices} />
+            <Route path="/device" component={Device} />
             <PrivateRoute path='/protected' component={Home} permissions={this.props.currentUser ? this.props.currentUser.permissions: null}/>
           </Switch>
         </HashRouter>

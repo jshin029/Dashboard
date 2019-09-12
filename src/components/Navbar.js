@@ -17,7 +17,8 @@ class Navbar extends Component {
     super();
     this.state = {
       redirectUsers: false,
-      redirectDash: false
+      redirectDash: false,
+      redirectDevice: false
     }
   }
 
@@ -33,6 +34,12 @@ class Navbar extends Component {
     });
   }
 
+  setRedirectDevice = () => {
+    this.setState({
+      redirectDevice: true
+    })
+  }
+
   handleClick = () => {
     localStorage.removeItem("token")
     this.props.logoutUser()
@@ -45,12 +52,16 @@ class Navbar extends Component {
     else if (this.state.redirectDash) {
       return <Redirect push to="/protected" />
     }
+    else if (this.state.redirectDevice) {
+      console.log("redirectDevice")
+      return <Redirect push to="/device" />
+    }
     return(
       <div className="Navbar">
         <div className="Wrapper">
           <img className="main-logo" src={logo}></img>
           <button className="buttons" onClick={this.setRedirectDash}>Dashboard</button>
-          <button className="buttons" onClick={this.setRedirectDevices}>Devices</button>
+          <button className="buttons" onClick={this.setRedirectDevice}>Devices</button>
           <button className="buttons" onClick={this.setRedirectUsers}>Users</button>
           <button className="buttons" onClick={this.handleClick}>Logout</button>
         </div>

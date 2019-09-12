@@ -1,0 +1,29 @@
+.DeviceId,.Type,.Name,.Leased,.SIM,.Delete {
+  font-weight: 700;
+}
+
+.DeviceId {
+  width: 16.5vw;
+}
+
+.Type {
+  width: 5vw;
+}
+
+.Name {
+  width: 12vw;
+}
+
+.Leased {
+  width: 26vw;
+}
+
+.SIM {
+  width: 12vw;
+}
+
+.nextPage {
+  background-color: white;
+  padding: 10px;
+  border-radius: 0px 0px 6px 6px;
+}
