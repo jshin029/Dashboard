@@ -1,0 +1,36 @@
+.w1 {
+  width: 20%;
+  color: #808080;
+}
+
+.w2 {
+  width: 15%;
+  color: #808080;
+}
+
+.w3 {
+  width: 26%;
+  color: #808080;
+}
+
+.w4 {
+  width: 10%;
+  color: #808080;
+}
+
+.w5,.w6 {
+  width: 8%;
+  color: #808080;
+}
+
+.w7 {
+  width: 15%;
+  color: #808080;
+}
+
+.userFields {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  border-bottom: 2px solid #D8D8D8;
+}

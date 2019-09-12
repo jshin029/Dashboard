@@ -27,7 +27,6 @@
   padding: 10px;
   border-radius: 0px 0px 6px 6px;
   width: 100%;
-  float: right;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }

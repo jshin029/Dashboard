@@ -1,0 +1,56 @@
+.modalUserTitle {
+  font-weight: 300 !important;
+  color: white;
+}
+
+.modalUserHeader{
+  background-color: #58C9F3;
+  border: none;
+}
+
+.userModalBody {
+}
+
+.flexUser {
+  display: flex;
+  width: 100%;
+}
+
+.flexUser2 {
+  display: flex;
+  width: 100%;
+  margin-top: 4%;
+}
+
+.flexUser3 {
+  display: flex;
+  width: 100%;
+  margin-top: 4%;
+  margin-bottom: 2%;
+}
+
+.flexUserText {
+  display: flex;
+  width: 100%;
+  margin-top: 2%;
+}
+.textUser {
+  font-size: 14px;
+  padding: 1.5%;
+  padding-bottom: 4px;
+  width: 40%;
+}
+
+.fillerUser {
+  width: 90%;
+  padding: 8px 8px 8px 3px;
+  color: black;
+}
+
+.modalSizingUser {
+  width: 45vw !important;
+}
+
+.checkBoxUser {
+  width: 90%;
+}

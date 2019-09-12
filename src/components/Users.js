@@ -5,7 +5,8 @@ import './css/Users.css';
 import { MyContext } from './Home';
 import { connect } from 'react-redux';
 import Particle from 'particle-api-js';
-import wrench from '../assets/wrench.png'
+import { Button, Icon } from 'antd';
+import ModalComponentUsers from './ModalComponentUsers';
 
 class Users extends Component {
   constructor(props){
@@ -55,26 +56,34 @@ class Users extends Component {
       <div>
         <Navbar/>
         <div className="cpbox1">
-          <p>Control Panel / Users</p>
+          <Icon style={{padding: '5px'}} type="tool" />
+          <div>Control Panel / Users</div>
         </div>
         <div className="cpbox2">
           <div className="cpinnerbox1">
-            <div className="cpinner1">Users</div>
-            <div className="cpinner2">
-              <div className="userName">Username (Email)</div>
-              <div className="friendlyName">Friendly Name</div>
-              <div className="timeZone">Time Zone</div>
-              <div className="role">Role</div>
-              <div className="edit">Edit/Delete</div>
-              <div className="deviceAssociation">Device Association</div>
+            <div className="cpBorder">
+              <div className="cpinner1">Users</div>
+              <div className="cpinner2">
+                <div className="userName">Username (Email)</div>
+                <div className="friendlyName">Friendly Name</div>
+                <div className="timeZone">Time Zone</div>
+                <div className="role">Role</div>
+                <div className="edit">Edit</div>
+                <div className="delete">Delete</div>
+                <div className="deviceAssociation">Device Association</div>
+              </div>
             </div>
             {this.addRow()}
+            <div className="nextPage">
+              <Button style={{marginRight: '8px'}}>Previous</Button>
+              <Button>Next</Button>
+            </div>
         </div>
           <div className="cpinnerbox2">
             <div className="cpinner3">Additional Operations</div>
             <div className="cpinner4">
               <p>Select an operation to perform.</p>
-              <button>Add user</button>
+              <ModalComponentUsers />
             </div>
           </div>
         </div>

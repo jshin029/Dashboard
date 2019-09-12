@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
-import './css/Users.css';
+import { Button, Icon } from 'antd';
+import './css/UserRow.css';
 
 class UserRow extends Component {
   constructor(props){
@@ -37,10 +38,13 @@ class UserRow extends Component {
         <div className="w3">{this.state.timeZone}</div>
         <div className="w4">{this.state.Role}</div>
         <div className="w5">
-          <button>edit</button>
+          <Button><Icon theme="twoTone" twoToneColor='#52c41a' type="edit" /></Button>
         </div>
         <div className="w6">
-          <button onClick={this.setRedirectManageDevice}>manage</button>
+          <Button><Icon theme="twoTone" twoToneColor="#eb2f96" type="delete"/></Button>
+        </div>
+        <div className="w7">
+          <Button style={{backgroundColor: '#58C9F3', border: 'none'}} type="primary" onClick={this.setRedirectManageDevice}>manage</Button>
         </div>
 
       </div>
