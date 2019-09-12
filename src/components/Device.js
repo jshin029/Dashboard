@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import { Button, Icon } from 'antd';
 import Navbar from './Navbar';
 import Particle from 'particle-api-js';
 import ParticleRow from './ParticleRow';
@@ -47,6 +47,7 @@ class Device extends Component {
       <div>
         <Navbar/>
         <div className="cpbox1">
+          <Icon style={{padding: '5px'}} type="tool" />
           <div>Control Panel / Devices</div>
         </div>
         <div className="cpbox2">
@@ -64,14 +65,15 @@ class Device extends Component {
             </div>
             {this.state.particleRows.map((particle, index) => <div key={index}>{ particle }</div>)}
             <div className="nextPage">
+              <Button style={{marginRight: '8px'}}>Previous</Button>
               <Button>Next</Button>
             </div>
         </div>
           <div className="cpinnerbox2">
             <div className="cpinner3">Additional Operations</div>
             <div className="cpinner4">
-              <div style={{padding: '4px', textAlign: 'center'}}>Select an operation to perform.</div>
-              <div style={{margin: '0 auto'}}><Button type="primary">Import device(s) from Particle</Button></div>
+              <div style={{padding: '4px'}}>Select an operation to perform.</div>
+              <div><Button type="primary">Import device(s) from Particle</Button></div>
             </div>
           </div>
         </div>
