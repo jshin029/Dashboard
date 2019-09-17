@@ -12,6 +12,14 @@
 
 
 
+<div classNAme="flexDevice">
+  <div className="textDevice">Username (Email)</div>
+  <div style={{width: '30%'}}>
+    <MultiMenu updateDevice={this.props.updateDevice ? this.props.updateDevice: null} options={this.state.userOptions}/>
+  </div>
+</div>
+
+
 <div>
   <Navbar />
 </div>

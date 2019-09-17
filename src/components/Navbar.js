@@ -53,7 +53,6 @@ class Navbar extends Component {
       return <Redirect push to="/protected" />
     }
     else if (this.state.redirectDevice) {
-      console.log("redirectDevice")
       return <Redirect push to="/device" />
     }
     return(

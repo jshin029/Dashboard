@@ -28,7 +28,7 @@ class Login extends Component {
      Email: '',
      Password: '',
    })
- }
+  }
 
   render(){
     if (this.props.currentUser){
@@ -45,6 +45,10 @@ class Login extends Component {
               <input className="input" type="text" name="Email" placeholder="Email" value={this.state.Email} onChange={this.handleChange}/>
               <input className="input" type="password" name="Password" placeholder="Password" value={this.state.Password} onChange={this.handleChange}/>
               <button className="loginButton" type="submit">SIGN IN</button>
+              <div className="flex">
+                <div>Forgot password?</div>
+                <a onClick={this.handleReset}>Reset password</a>
+              </div>
             </form>
           </div>
       </div>

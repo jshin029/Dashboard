@@ -3,6 +3,7 @@ import { Button, Icon } from 'antd';
 import Navbar from './Navbar';
 import Particle from 'particle-api-js';
 import ParticleRow from './ParticleRow';
+import ModalComponentDevices from './ModalComponentDevices';
 import './css/Device.css'
 
 class Device extends Component {
@@ -28,18 +29,6 @@ class Device extends Component {
       }
     );
   }
-
-  // rowFormat = (devices) => {
-  //   console.log(devices.body.length)
-  //   let temp = [];
-  //   for (let i = 0; i < device.body.length; ++i){
-  //       temp.push(<ParticleRow deviceId={devices.body[i].id} name={devices.body[i].name}/>)
-  //   }
-  //   this.setState({
-  //     particleRows: temp,
-  //     listNumber: 10
-  //   })
-  // }
 
   rowFormat = (devices) => {
     let temp = [];
@@ -154,8 +143,8 @@ class Device extends Component {
             <div className="cpinner3">Additional Operations</div>
             <div className="cpinner4">
               <div style={{padding: '4px'}}>Select an operation to perform.</div>
-              <div><Button style={{backgroundColor: '#58C9F3', border: 'none'}} type="primary">Import device(s) from Particle</Button></div>
-              <div><Button style={{marginTop: '10px', backgroundColor: '#58C9F3', border: 'none'}} type="primary">Bulk Operation</Button></div>
+              <div><Button onClick={this.loadParticle}style={{backgroundColor: '#58C9F3', border: 'none'}} type="primary">Import device(s) from Particle</Button></div>
+              <ModalComponentDevices />
             </div>
           </div>
         </div>

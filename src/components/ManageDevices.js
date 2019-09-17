@@ -23,6 +23,7 @@ class ManageDevices extends Component {
       extraData: true,
       dataVisibility: true,
       deviceRows: [],
+      deivceOptions: [],
     }
   }
 

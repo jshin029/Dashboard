@@ -1,0 +1,57 @@
+.modalUserTitle {
+  font-weight: 300 !important;
+  color: white;
+}
+
+.modalUserHeader{
+  background-color: #58C9F3;
+  border: none;
+}
+
+.userModalBody {
+}
+
+.flexDevice {
+  display: flex;
+  width: 100%;
+}
+
+.flexDevice2 {
+  display: flex;
+  width: 100%;
+  margin-top: 4%;
+}
+
+.flexDevice3 {
+  display: flex;
+  width: 100%;
+  margin-top: 4%;
+  margin-bottom: 2%;
+}
+
+.flexDeviceText {
+  display: flex;
+  width: 100%;
+  margin-top: 2%;
+}
+
+.textDevice {
+  font-size: 14px;
+  padding: 1.5%;
+  padding-bottom: 4px;
+  width: 40%;
+}
+
+.fillerDevice {
+  width: 90%;
+  padding: 8px 8px 8px 3px;
+  color: black;
+}
+
+.modalSizingDevice {
+  width: 45vw !important;
+}
+
+.checkBoxDevice {
+  width: 90%;
+}

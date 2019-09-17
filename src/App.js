@@ -37,7 +37,8 @@ render () {
             <Route path="/users" component={Users}/>
             <Route path="/manageDevices" component={ManageDevices} />
             <Route path="/device" component={Device} />
-            <PrivateRoute path='/protected' component={Home} permissions={this.props.currentUser ? this.props.currentUser.permissions: null}/>
+            <Route path="/protected" component={Home} />
+            {/*<PrivateRoute path='/protected' component={Home} permissions={this.props.currentUser ? this.props.currentUser.permissions: null}/>*/}
           </Switch>
         </HashRouter>
       </div>
