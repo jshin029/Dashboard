@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
-import Section1 from './Section1';
-import Section2 from './Section2';
-import Section3 from './Section3';
-import Section4 from './Section4';
-import Section6 from './Section6';
+import Section6 from './Sections/Section6';
+import Navbar from '../Utilities/Navbar';
 
 class Home extends React.Component {
   render() {

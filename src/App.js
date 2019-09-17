@@ -1,11 +1,11 @@
 import React from 'react';
-import Home from './components/Home';
-import Login from './components/Login';
-import Registration from './components/Registration';
-import Users from './components/Users';
-import ManageDevices from './components/ManageDevices';
-import Device from './components/Device';
-import adminRegistration from './components/adminRegistration';
+import Home from './components/Home/Home';
+import Login from './components/Landing/Login';
+import Registration from './components/Landing/Registration';
+import Users from './components/Users/Users';
+import ManageDevices from './components/Devices/ManageDevices';
+import Device from './components/Devices/Device';
+import adminRegistration from './components/Landing/adminRegistration';
 import './App.css';
 import { connect } from 'react-redux';
 import { getProfileFetch } from './redux/actions'
