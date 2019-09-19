@@ -5,7 +5,8 @@ import Registration from './components/Landing/Registration';
 import Users from './components/Users/Users';
 import ManageDevices from './components/Devices/ManageDevices';
 import Device from './components/Devices/Device';
-import adminRegistration from './components/Landing/adminRegistration';
+import ResetPassword from './components/Landing/ResetPassword';
+import AdminRegistration from './components/Landing/AdminRegistration';
 import './App.css';
 import { connect } from 'react-redux';
 import { getProfileFetch } from './redux/actions'
@@ -33,11 +34,12 @@ render () {
             <Route path="/" exact render={() => <Login validate={this.validate} />} />
             <Route path="/login" render={() => <Login validate={this.validate} />} />
             <Route path="/register" component={Registration} />
-            <Route path="/adminRegister" component={adminRegistration} />
+            <Route path="/adminRegister" component={AdminRegistration} />
             <Route path="/users" component={Users}/>
             <Route path="/manageDevices" component={ManageDevices} />
             <Route path="/device" component={Device} />
             <Route path="/protected" component={Home} />
+            <Route path="/ResetPassword" component={ResetPassword} />
             {/*<PrivateRoute path='/protected' component={Home} permissions={this.props.currentUser ? this.props.currentUser.permissions: null}/>*/}
           </Switch>
         </HashRouter>

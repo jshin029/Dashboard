@@ -12,6 +12,7 @@ class Login extends Component {
     this.state = {
       Email: '',
       Password: '',
+      Redirect: false
     }
   }
 
@@ -30,6 +31,12 @@ class Login extends Component {
    })
   }
 
+  handleReset = () => {
+    this.setState({
+      Redirect: true
+    })
+  }
+
   render(){
     if (this.props.currentUser){
       if (this.props.currentUser.permissions === 'Admin' || this.props.currentUser.permissions === 'User'){
@@ -37,6 +44,9 @@ class Login extends Component {
       }
     }
 
+    if (this.state.Redirect){
+      return <Redirect to={{pathname: '/resetPassword'}} />
+    }
     return(
       <div className="loginBg">
           <div className="loginInner">
@@ -45,9 +55,9 @@ class Login extends Component {
               <input className="input" type="text" name="Email" placeholder="Email" value={this.state.Email} onChange={this.handleChange}/>
               <input className="input" type="password" name="Password" placeholder="Password" value={this.state.Password} onChange={this.handleChange}/>
               <button className="loginButton" type="submit">SIGN IN</button>
-              <div className="flex">
+              <div className="loginBottomText">
                 <div>Forgot password?</div>
-                <a onClick={this.handleReset}>Reset password</a>
+                <a className="resetPassword" onClick={this.handleReset}>Reset password</a>
               </div>
             </form>
           </div>
